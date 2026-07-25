@@ -1,0 +1,220 @@
+:root {
+    --background-green: #00BF63;
+    --section-color: #AFC777; 
+    --category-button: #e1ff9b;
+    --start-button: #00b839; 
+    --font-color: black; 
+
+    --heading-font: "League Spartan"; 
+    --subheading-font: "Open Sans"; 
+    --general-font: "Ubuntu Mono"
+}
+
+body {
+    background-color: var(--background-green);
+    color: var(--font-color);
+    margin: 0; 
+    min-height: 100vh;
+}
+
+main {
+    width: min(1520px, 94vw);
+    margin-inline: auto;
+    padding-bottom: 40px;
+}
+
+
+h1, h2, h3 {
+    text-align: center;
+    margin: 0 auto; 
+    color: var(--font-color)
+}
+
+h1 {
+    font-family: var(--heading-font);
+    font-size: 5rem;
+    line-height: 0.95;
+    margin-top: 2vh; 
+}
+
+h2 {
+    color: #005029; 
+    font-family: var(--subheading-font);
+    font-weight: 700; 
+    font-size: 3.3rem;
+    line-height: 1.05;
+    max-width: 900px;
+}
+
+h3 {
+    font-family: var(--heading-font);
+    font-size: 2.8rem; 
+    margin: 0 0 4px;
+    line-height: 1;
+    text-align: center;
+    padding-top: 10px; 
+}
+
+h4 {
+    margin: 0 0 4px 0; 
+    
+    margin-bottom: 4px;
+    
+    color: var(--font-color); 
+    font-family: var(--heading-font);
+    font-size: 2.6rem;
+    line-height: 1;
+}
+
+#yellow-sections-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 535px));
+    justify-content: space-between;
+    align-items: stretch;
+
+    gap: 70px;
+    width: 100%;
+    margin-top: clamp(50px, 6vh, 75px);
+}
+
+.yellow-section {
+    min-height: 455px;
+    padding: 0 14px 18px;
+
+    background-color: var(--section-color);
+    border-radius: 32px;
+}
+
+#rules-section {
+    padding-inline: 14px;
+}
+
+.rules-content p {
+    margin-bottom: 22px;
+}
+
+.rules-paragraph {
+    margin: 22px 0;
+}
+
+#wanna-play-section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.game-option {
+    width: 100%;
+}
+
+.game-option p {
+    margin-bottom: 12px;
+}
+
+.host-button {
+    display: block;
+    width: 195px;
+    height: 45px;
+    margin: 16px auto 30px;
+
+    color: white;
+    background-color: yellowgreen;
+
+    border: 3px solid white;
+    border-radius: 999px;
+
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.host-button:hover {
+    background-color: white;
+    color: yellowgreen;
+}
+
+p {
+    font-family: var(--general-font);
+    color: var(--font-color);
+    font-size: 1.2rem;
+    line-height: 1.12;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 25px;
+
+    font-family: var(--general-font);
+}
+
+form label {
+    font-size: 1.25rem;
+}
+
+form input {
+    width: 220px;
+    height: 34px;
+    padding-inline: 8px;
+
+    border: 2px solid darkseagreen;
+    border-radius: 3px;
+
+    font-family: var(--general-font);
+    text-transform: uppercase;
+}
+
+form button {
+    height: 34px;
+    padding-inline: 12px;
+
+    border: none;
+    border-radius: 4px;
+
+    background-color: var(--start-button);
+    color: white;
+
+    font-family: var(--general-font);
+    cursor: pointer;
+}
+
+/* Responsive layout */
+
+@media (max-width: 1050px) {
+    /* Change picture when necessary! */
+
+    #yellow-sections-container {
+        gap: 40px;
+    }
+
+    h2 {
+        font-size: 2.9rem;
+    }
+}
+
+@media (max-width: 800px) {
+    main {
+        width: min(92vw, 600px);
+    }
+
+    h2 {
+        font-size: 2.1rem;
+    }
+
+    /* Change picture when necessary! */
+
+    #yellow-sections-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+
+        margin-top: 30px;
+    }
+
+    .yellow-section {
+        min-height: auto;
+        padding: 16px 20px 24px;
+    }
+}

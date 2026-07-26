@@ -44,8 +44,77 @@ h1, h2, h3 {
     color: var(--font-color)
 }
 
-header {
-    padding-top: 2vh;
+
+.site-header {
+    position: relative;
+    width: 100%;
+    min-height: 250px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 16px 20px;
+    overflow: visible;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+}
+
+.header-chameleon {
+    position: absolute;
+    z-index: 1;
+
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: clamp(260px, 28vw, 440px);
+    height: auto;
+    max-height: 250px;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+.site-header h1 {
+    margin: 0;
+
+    font-family: var(--heading-font);
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 0.95;
+}
+
+.room-code {
+    display: inline-block;
+
+    margin-top: 14px;
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+    color: #005029;
+
+    font-family: var(--subheading-font);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.header-subtitle {
+    max-width: 800px;
+    margin: 14px auto 0;
+
+    color: #005029;
+    font-family: var(--subheading-font);
+    font-size: clamp(1.8rem, 3.5vw, 3.3rem);
+    font-weight: 700;
+    line-height: 1.05;
 }
 
 h1 {
@@ -234,8 +303,42 @@ p {
 }
 
 @media (max-width: 800px) {
-    main {
+    
+        main {
         width: min(92vw, 600px);
+    }
+
+    .site-header {
+        min-height: 210px;
+        padding: 12px 16px;
+        overflow: visible;
+    }
+
+    .header-chameleon {
+        position: absolute;
+
+        left: 50%;
+        top: 50%;
+
+        width: min(90vw, 420px);
+        height: auto;
+        max-height: 200px;
+
+        transform: translate(-50%, -50%);
+        opacity: 0.7;
+    }
+
+    .header-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .site-header h1 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+    }
+
+    .header-subtitle {
+        font-size: clamp(1.35rem, 6vw, 2.1rem);
     }
 
     h2 {

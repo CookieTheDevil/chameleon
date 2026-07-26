@@ -1,5 +1,9 @@
 /* LOBBY SPECIFICS */
 
+[hidden] {
+    display: none !important;
+}
+
 html,
 body {
     width: 100%;
@@ -45,7 +49,6 @@ body {
 
     cursor: pointer;
 }
-
 
 .category-button.selected {
     font-weight: 700;
@@ -117,8 +120,6 @@ body {
 }
 
 .player-waiting {
-    min-height: calc(100dvh - 220px);
-
     display: flex;
     flex-direction: column;
     justify-content: center;

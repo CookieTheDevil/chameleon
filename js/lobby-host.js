@@ -2,26 +2,49 @@ const params = new URLSearchParams(window.location.search);
 
 const action = params.get("action");
 const playerName = params.get("name");
-const roomCode = params.get("code");
+const joinedRoomCode = params.get("code");
 
 const hostLobby = document.querySelector("#host-lobby");
 const playerLobby = document.querySelector("#player-lobby");
 const playerNameElement = document.querySelector("#player-name");
 const roomCodeElement = document.querySelector("#room-code");
 
-if (action === "join") {
+function generateRoomCode(length = 5) {
+    const characters = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    let code = "";
+
+    for (let index = 0; index < length; index += 1) {
+        code += characters[
+            Math.floor(Math.random() * characters.length)
+        ];
+    }
+
+    return code;
+}
+
+let roomCode;
+
+if (action === "host") {
+    roomCode = sessionStorage.getItem("hostRoomCode");
+
+    if (!roomCode) {
+        roomCode = generateRoomCode();
+        sessionStorage.setItem("hostRoomCode", roomCode);
+    }
+
+    hostLobby.hidden = false;
+    playerLobby.hidden = true;
+} else {
+    roomCode = joinedRoomCode?.toUpperCase() || "-----";
+
     hostLobby.hidden = true;
     playerLobby.hidden = false;
 
-    playerNameElement.textContent = playerName || "Player";
-
-    if (roomCode) {
-        roomCodeElement.textContent = roomCode.toUpperCase();
-    }
-} else {
-    hostLobby.hidden = false;
-    playerLobby.hidden = true;
+    playerNameElement.textContent =
+        playerName || "Player";
 }
+
+roomCodeElement.textContent = roomCode;
 
 // Copy link --------------------------------------------
 

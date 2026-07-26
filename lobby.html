@@ -15,11 +15,18 @@
     </head>
     <body>  
         <main class="lobby-page">
-            <header>
-                <h1>Chameleon</h1>
-                <h2 id="copy-link-button" class="room-code">
-                    CODE: <span id="room-code">XY2J7</span> 🔗
-                </h2>
+            <header class="site-header">
+                <img
+                    class="header-chameleon"
+                    src="images/chameleonNBG.svg"
+                    alt="Green chameleon sitting on a branch"
+                >
+                <div class="header-content">
+                    <h1>Chameleon</h1>
+                    <h2 id="copy-link-button" class="room-code">
+                        CODE: <span id="room-code">XY2J7</span> 🔗
+                    </h2>
+                </div>
             </header>
             <!-- Host Lobby -->
             <section id="host-lobby" class="lobby-panel" hidden>
@@ -55,7 +62,7 @@
             </section>
             
             <!-- Player Lobby -->
-            <section id="player-lobby" class="player-waiting" >
+            <section id="player-lobby" class="player-waiting" hidden>
                 <h2>Sit tight, <span id="player-name"></span>!</h2>
                 <p>
                     The Host will start the game when everybody is ready.

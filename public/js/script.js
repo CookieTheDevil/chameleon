@@ -7,6 +7,17 @@ const hostNameInput = document.querySelector("#host-name");
 const playerNameInput = document.querySelector("#game-name");
 const gameCodeInput = document.querySelector("#game-code");
 
+const pageParams = new URLSearchParams(window.location.search);
+
+const invitedRoomCode = pageParams.get("code");
+
+if (invitedRoomCode) {
+    gameCodeInput.value =
+        invitedRoomCode.trim().toUpperCase();
+
+    playerNameInput.focus();
+}
+
 function cleanPlayerName(value) {
     return value.trim().slice(0, 15); 
 }

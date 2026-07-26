@@ -26,14 +26,28 @@ const startGameButton = document.querySelector("#start-game-button");
 
 
 function createPlayerRow(player, index) {
-    const playerRow = document.createElement("div"); 
+    const playerRow = document.createElement("div");
 
-    playerRow.classList.add("player-row"); 
+    playerRow.classList.add("player-row");
 
-    playerRow.textContent =
-        `${index + 1}. ${player.name}${player.isHost ? " (Host)" : ""}`;
-    
-    return playerRow; 
+    if (!player.connected) {
+        playerRow.classList.add("disconnected");
+    }
+
+    let playerText =
+        `${index + 1}. ${player.name}`;
+
+    if (player.isHost) {
+        playerText += " (Host)";
+    }
+
+    if (!player.connected) {
+        playerText += " — disconnected";
+    }
+
+    playerRow.textContent = playerText;
+
+    return playerRow;
 }
 
 function renderPlayers(players) {
@@ -134,13 +148,14 @@ loadCategories();
 
 copyRoomLinkButton.addEventListener("click", async () => {
     try {
-        await navigator.clipboard.writeText(window.location.href);
+        const inviteUrl =
+            new URL("index.html", window.location.href);
 
-        const originalHTML = copyRoomLinkButton.innerHTML;
+        inviteUrl.searchParams.set("code", code);
 
-        setTimeout(() => {
-            copyRoomLinkButton.innerHTML = originalHTML;
-        }, 1500);
+        await navigator.clipboard.writeText(
+            inviteUrl.toString()
+        );
     } catch {
         alert("Could not copy the link.");
     }

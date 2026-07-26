@@ -2,6 +2,10 @@
     display: none !important;
 }
 
+.site-header {
+    margin-top: -25px;
+}
+
 .game-page {
     width: min(1200px, 94vw);
     margin-inline: auto;

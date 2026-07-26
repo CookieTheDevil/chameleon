@@ -11,9 +11,13 @@ body {
     overflow-x: hidden;
 }
 
+.site-header {
+    margin-top: -25px;
+}
+
 #host-lobby {
     width: min(1000px, 92vw);
-    margin: 35px auto 0;
+    margin: -35px auto 0;
     padding: 18px 20px 12px;
 
     background-color: var(--section-color);
@@ -88,6 +92,11 @@ body {
     text-overflow: ellipsis;
 
     animation: player-appears 0.4s ease;
+}
+
+.player-row.disconnected {
+    opacity: 0.55;
+    font-style: italic;
 }
 
 @keyframes player-appears {

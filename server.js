@@ -8,17 +8,162 @@ const app = express();
 const server = http.createServer(app); 
 const io = new Server(server); 
 
-const PORT = 3000; 
+const PORT = process.env.PORT || 3000;
 
 const rooms = new Map(); 
 
 const categoriesPath = path.join(__dirname, "data", "categories.json");
 
-const categoriesData = JSON.parse(
-    fs.readFileSync(categoriesPath, "utf8")
-);
+function loadCategories() {
+    let data;
 
-const categories = categoriesData.categories;
+    try {
+        const fileContent =
+            fs.readFileSync(categoriesPath, "utf8");
+
+        data = JSON.parse(fileContent);
+    } catch (error) {
+        throw new Error(
+            `Could not read categories.json: ${error.message}`
+        );
+    }
+
+    if (!data || !Array.isArray(data.categories)) {
+        throw new Error(
+            'categories.json must contain a "categories" array.'
+        );
+    }
+
+    const usedIds = new Set();
+    const usedNames = new Set();
+
+    return data.categories.map(
+        (category, categoryIndex) => {
+            const categoryLabel =
+                `Category ${categoryIndex + 1}`;
+
+            if (
+                !category ||
+                typeof category !== "object"
+            ) {
+                throw new Error(
+                    `${categoryLabel} must be an object.`
+                );
+            }
+
+            const id =
+                typeof category.id === "string"
+                    ? category.id.trim()
+                    : "";
+
+            const name =
+                typeof category.name === "string"
+                    ? category.name.trim()
+                    : "";
+
+            if (!id) {
+                throw new Error(
+                    `${categoryLabel} needs an id.`
+                );
+            }
+
+            if (!/^[a-z0-9-]+$/.test(id)) {
+                throw new Error(
+                    `Category id "${id}" may only contain lowercase letters, numbers and hyphens.`
+                );
+            }
+
+            if (usedIds.has(id)) {
+                throw new Error(
+                    `Duplicate category id: "${id}".`
+                );
+            }
+
+            usedIds.add(id);
+
+            if (!name) {
+                throw new Error(
+                    `Category "${id}" needs a name.`
+                );
+            }
+
+            const normalisedName =
+                name.toLowerCase();
+
+            if (usedNames.has(normalisedName)) {
+                throw new Error(
+                    `Duplicate category name: "${name}".`
+                );
+            }
+
+            usedNames.add(normalisedName);
+
+            if (!Array.isArray(category.words)) {
+                throw new Error(
+                    `Category "${name}" needs a words array.`
+                );
+            }
+
+            const words = category.words.map(
+                (word, wordIndex) => {
+                    if (
+                        typeof word !== "string" ||
+                        !word.trim()
+                    ) {
+                        throw new Error(
+                            `Word ${wordIndex + 1} in "${name}" is invalid.`
+                        );
+                    }
+
+                    return word.trim();
+                }
+            );
+
+            if (words.length < 16) {
+                throw new Error(
+                    `Category "${name}" needs at least 16 words. It currently has ${words.length}.`
+                );
+            }
+
+            const usedWords = new Set();
+
+            for (const word of words) {
+                const normalisedWord =
+                    word.toLowerCase();
+
+                if (usedWords.has(normalisedWord)) {
+                    throw new Error(
+                        `Category "${name}" contains the duplicate word "${word}".`
+                    );
+                }
+
+                usedWords.add(normalisedWord);
+            }
+
+            return {
+                id,
+                name,
+                words
+            };
+        }
+    );
+}
+
+let categories;
+
+try {
+    categories = loadCategories();
+
+    console.log(
+        `Loaded ${categories.length} valid categories.`
+    );
+} catch (error) {
+    console.error(
+        `Category data error: ${error.message}`
+    );
+
+    process.exit(1);
+}
 
 const validCategoryIds = new Set(
     categories.map(category => category.id)
@@ -98,9 +243,11 @@ function sendLobbyState(room) {
     }
 }
 
-server.listen(PORT, () => {
-    console.log(`Chameleon is running at http://localhost:${PORT}`)
-})
+server.listen(PORT, "0.0.0.0", () => {
+    console.log(
+        `Chameleon is running on port ${PORT}`
+    );
+});
 
 io.on("connection", socket => {
     console.log("Player connected:", socket.id);
@@ -538,8 +685,28 @@ io.on("connection", socket => {
         }
     );
 
+    //players should be able to reconnect when refreshing
     socket.on("disconnect", () => {
         console.log("Player disconnected:", socket.id);
+
+        for (const room of rooms.values()) {
+            const player = room.players.find(
+                item => item.socketId === socket.id
+            );
+
+            if (!player) {
+                continue;
+            }
+
+            player.connected = false;
+            player.socketId = null;
+
+            if (room.phase === "lobby") {
+                sendLobbyState(room);
+            }
+
+            break;
+        }
     });
 });
 

@@ -108,13 +108,13 @@ h1, h2, h3 {
 
 .header-subtitle {
     max-width: 800px;
-    margin: 14px auto 0;
+    margin: 10px auto 0;
 
     color: #005029;
     font-family: var(--subheading-font);
-    font-size: clamp(1.8rem, 3.5vw, 3.3rem);
+    font-size: clamp(1.5rem, 3.5vw, 3rem);
     font-weight: 700;
-    line-height: 1.05;
+    line-height: 1.00;
 }
 
 h1 {

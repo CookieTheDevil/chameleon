@@ -298,6 +298,8 @@ io.on("connection", socket => {
                     ok: false, 
                     message: "Category not found."
                 })
+
+                return; 
             }; 
 
             const categoryIndex = room.selectedCategories.indexOf(cleanCategoryId);
@@ -314,6 +316,174 @@ io.on("connection", socket => {
             }); 
 
             sendLobbyState(room); 
+        }
+    )
+
+    //Lobby-page to Game-page
+    socket.on(
+        "start-game",
+        ({ code, playerToken }, respond) => {
+            const cleanCode =
+                String(code || "").trim().toUpperCase();
+
+            const room = rooms.get(cleanCode);
+
+            if (!room) {
+                respond({
+                    ok: false,
+                    message: "Room not found."
+                });
+
+                return;
+            }
+
+            if (room.hostToken !== playerToken) {
+                respond({
+                    ok: false,
+                    message: "Only the host can start the game."
+                });
+
+                return;
+            }
+
+            if (room.phase !== "lobby") {
+                respond({
+                    ok: false,
+                    message: "The game has already started."
+                });
+
+                return;
+            }
+
+            const connectedPlayers =
+                room.players.filter(
+                    player => player.connected
+                );
+
+            if (connectedPlayers.length < 2) {
+                respond({
+                    ok: false,
+                    message: "At least two players are required."
+                });
+
+                return;
+            }
+
+            if (room.selectedCategories.length === 0) {
+                respond({
+                    ok: false,
+                    message: "Select at least one category."
+                });
+
+                return;
+            }
+
+            const selectedCategoryId = pickRandomItem(room.selectedCategories); 
+            const selectedCategory = categories.find(category => category.id === selectedCategoryId); 
+
+            if (!selectedCategory || !Array.isArray(selectedCategory.words)) {
+                respond({
+                    ok: false, 
+                    message: "The selected category is invaled"
+                });
+
+                return; 
+            }
+
+            if (selectedCategory.words.length < 16) {
+                respond({
+                    ok: false, 
+                    message: `${selectedCategory.name} needs at least 16 words.`
+                })
+
+                return; 
+            }
+
+            const boardWords = createBoardWords(selectedCategory.words); 
+            const secretWord = pickSecretWord(boardWords); 
+            const chameleon = pickRandomItem(connectedPlayers); 
+
+            room.round = {
+                categoryId: selectedCategory.id, 
+                categoryName: selectedCategory.name, 
+                boardWords, 
+                secretWord, 
+                chameleonToken: chameleon.token
+            }; 
+
+            room.phase = "playing"; 
+
+            respond({
+                ok: true
+            }); 
+
+            io.to(cleanCode).emit("game-started", {
+                code: cleanCode
+            })
+        }
+    );
+
+    // Game-page
+    socket.on(
+        "enter-game", 
+        ({ code, playerToken }, respond) => {
+            const cleanCode = String(code || "").trim().toUpperCase(); 
+
+            const room = rooms.get(cleanCode); 
+
+            if (!room) {
+                respond({
+                    ok: false, 
+                    message: "Room not found"
+                }); 
+
+                return; 
+            }
+
+            if (room.phase !== "playing" || !room.round) {
+                respond({
+                    ok: false, 
+                    message: "The game has not started"
+                }); 
+
+                return; 
+            }
+
+            const player = room.players.find(
+                item => item.token === playerToken
+            ); 
+
+            if (!player) {
+                respond({
+                    ok: false, 
+                    message: "Player not found."
+                }); 
+
+                return; 
+            }
+
+            player.socketId = socket.id; 
+            player.connected = true; 
+
+            socket.join(cleanCode); 
+
+            const isChameleon = playerToken === room.round.chameleonToken; 
+
+            const gameState = {
+                code: room.code, 
+                categoryName: room.round.categoryName, 
+                boardWords: room.round.boardWords, 
+                isChameleon
+            };
+
+            if (!isChameleon) {
+                gameState.secretWord = room.round.secretWord; 
+            }; 
+
+            respond({
+                ok:true,
+                gameState
+            })
         }
     )
 
@@ -343,7 +513,11 @@ function createBoardWords(words) {
 }
 
 function pickSecretWord(boardWords) {
-    return boardWords[
-        Math.floor(Math.random() * boardWords.length)
+    return pickRandomItem(boardWords); 
+}
+
+function pickRandomItem(items) {
+    return items[
+        Math.floor(Math.random() * items.length)
     ];
 }

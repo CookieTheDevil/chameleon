@@ -22,6 +22,9 @@ let previousPlayers = "";
 const categoryList = document.querySelector("#category-list");
 let selectedCategoryIds = []; 
 
+const startGameButton = document.querySelector("#start-game-button"); 
+
+
 function createPlayerRow(player, index) {
     const playerRow = document.createElement("div"); 
 
@@ -180,3 +183,27 @@ socket.on("lobby-state", state => {
         playerNameElement.textContent = state.playerName; 
     }
 })
+
+socket.on("game-started", state => {
+    window.location.href = `game.html?code=${encodeURIComponent(state.code)}`;
+})
+
+// Start Game --------------------------------------------
+
+startGameButton.addEventListener("click", () => {
+    startGameButton.disabled = true; //prevent double start
+
+    socket.emit(
+        "start-game",
+        {
+            code,
+            playerToken
+        },
+        response => {
+            if (!response.ok) {
+                alert(response.message);
+                startGameButton.disabled = false;
+            }
+        }
+    );
+});

@@ -1,3 +1,14 @@
+const params =
+    new URLSearchParams(window.location.search);
+
+const code =
+    params.get("code")?.toUpperCase();
+
+const playerToken =
+    sessionStorage.getItem("playerToken");
+
+const socket = io();
+
 const roleLine = document.querySelector("#role-line");
 const categoryTitle = document.querySelector("#category-title");
 const boardGrid = document.querySelector("#board-grid");
@@ -52,19 +63,21 @@ function renderGame(state) {
     renderBoard(state.boardWords);
 }
 
-/* Temporary test state */
+// ---------------- SERVER HANDLING ----------------
 
-const testState = {
-    code: "XY2J7",
-    categoryName: "Sandra",
-    boardWords: [
-        "Yippie", "Teknisk", "Blå", "Sjokolade",
-        "IFI", "Tvilling", "FU-Koordinator", "Nerds",
-        "Musikaler", "Kommandør", "Gaming", "Lørenskog",
-        "IT", "Bøker", "Carl Berners", "Korrupsjon"
-    ],
-    secretWord: "Kommandør",
-    isChameleon: false
-};
+socket.emit(
+    "enter-game",
+    {
+        code,
+        playerToken
+    },
+    response => {
+        if (!response.ok) {
+            alert(response.message);
+            window.location.href = "index.html";
+            return;
+        }
 
-renderGame(testState);
+        renderGame(response.gameState);
+    }
+);

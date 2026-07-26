@@ -473,7 +473,8 @@ io.on("connection", socket => {
                 code: room.code, 
                 categoryName: room.round.categoryName, 
                 boardWords: room.round.boardWords, 
-                isChameleon
+                isChameleon,
+                isHost: player.isHost
             };
 
             if (!isChameleon) {
@@ -486,6 +487,56 @@ io.on("connection", socket => {
             })
         }
     )
+
+        // Game-page to Lobby-page
+    socket.on(
+        "return-to-lobby",
+        ({ code, playerToken }, respond) => {
+            const cleanCode =
+                String(code || "").trim().toUpperCase();
+
+            const room = rooms.get(cleanCode);
+
+            if (!room) {
+                respond({
+                    ok: false,
+                    message: "Room not found."
+                });
+
+                return;
+            }
+
+            if (room.hostToken !== playerToken) {
+                respond({
+                    ok: false,
+                    message:
+                        "Only the host can return everyone to the lobby."
+                });
+
+                return;
+            }
+
+            if (room.phase !== "playing") {
+                respond({
+                    ok: false,
+                    message: "The room is not currently playing."
+                });
+
+                return;
+            }
+
+            room.phase = "lobby";
+            room.round = null;
+
+            respond({
+                ok: true
+            });
+
+            io.to(cleanCode).emit("returned-to-lobby", {
+                code: cleanCode
+            });
+        }
+    );
 
     socket.on("disconnect", () => {
         console.log("Player disconnected:", socket.id);

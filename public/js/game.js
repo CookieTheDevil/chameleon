@@ -12,6 +12,7 @@ const socket = io();
 const roleLine = document.querySelector("#role-line");
 const categoryTitle = document.querySelector("#category-title");
 const boardGrid = document.querySelector("#board-grid");
+const returnToLobbyButton = document.querySelector("#return-to-lobby-button"); 
 
 const columnLabels = ["A", "B", "C", "D"];
 const rowLabels = ["1", "2", "3", "4"];
@@ -60,8 +61,30 @@ function renderGame(state) {
             `Secret Word: ${state.secretWord}`;
     }
 
+    returnToLobbyButton.hidden = !state.isHost; 
+
     renderBoard(state.boardWords);
 }
+
+// Return to Lobby --------------------------------------------
+
+returnToLobbyButton.addEventListener("click", () => {
+    returnToLobbyButton.disabled = true; //prevent double return
+
+    socket.emit(
+        "return-to-lobby",
+        {
+            code,
+            playerToken
+        },
+        response => {
+            if (!response.ok) {
+                alert(response.message);
+                returnToLobbyButton.disabled = false;
+            }
+        }
+    );
+});
 
 // ---------------- SERVER HANDLING ----------------
 
@@ -81,3 +104,8 @@ socket.emit(
         renderGame(response.gameState);
     }
 );
+
+socket.on("returned-to-lobby", state => {
+    window.location.href =
+        `lobby.html?code=${encodeURIComponent(state.code)}`;
+});

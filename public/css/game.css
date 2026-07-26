@@ -1,3 +1,7 @@
+[hidden] {
+    display: none !important;
+}
+
 .game-page {
     width: min(1200px, 94vw);
     margin-inline: auto;
@@ -15,7 +19,8 @@
 }
 
 .game-board-panel {
-    margin: 24px auto 0;
+    margin: auto auto 0;
+    margin-top: -25px; 
     padding: 18px 22px 22px;
 
     background-color: var(--section-color);
@@ -79,10 +84,11 @@
     .board-grid {
         gap: 8px;
         grid-template-columns: 48px repeat(4, minmax(0, 1fr));
+        grid-template-rows: repeat(4, minmax(0, 1fr)); 
     }
 
     .board-cell {
-        min-height: 58px;
+        min-height: clamp(64px, 10vw, 88px);
         padding: 6px;
         font-size: 1.2rem;
     }
@@ -91,4 +97,52 @@
     .board-row-header {
         font-size: 1.8rem;
     }
+}
+
+.return-to-lobby-button {
+    display: block;
+    width: min(360px, calc(100% - 2rem));
+    margin: 1vh auto 0;
+    padding: 14px 22px;
+
+    background-color: #d9f4a8;
+    color: #004c29;
+
+    border: 3px solid #005b31;
+    border-radius: 16px;
+    box-shadow: 0 3px 0 #005b31;
+
+    font-family: "League Spartan", sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 150ms ease,
+        box-shadow 150ms ease,
+        background-color 150ms ease;
+}
+
+.return-to-lobby-button:hover {
+    background-color: #e5ffb8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 #005b31;
+}
+
+.return-to-lobby-button:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #005b31;
+}
+
+.return-to-lobby-button:focus-visible {
+    outline: 4px solid white;
+    outline-offset: 4px;
+}
+
+.return-to-lobby-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+    box-shadow: 0 3px 0 #005b31;
 }

@@ -1,3 +1,5 @@
+const socket = io();
+
 const hostForm = document.querySelector("#host-form");
 const joinForm = document.querySelector("#join-form");
 
@@ -13,6 +15,21 @@ function isValidPlayerName(name) {
     return name.length >= 1 && name.length <= 15; 
 }
 
+// Server-handling
+
+function getPlayerToken() {
+    let token = sessionStorage.getItem("playerToken");
+
+    if (!token) {
+        token = crypto.randomUUID();
+        sessionStorage.setItem("playerToken", token);
+    }
+
+    return token;
+}
+
+const playerToken = getPlayerToken();
+
 hostForm.addEventListener("submit", event => {
     event.preventDefault(); 
 
@@ -24,12 +41,28 @@ hostForm.addEventListener("submit", event => {
         return; 
     }
 
-    const params = new URLSearchParams({
-        action: "host",
-        name: playerName
-    }); 
+    socket.emit(
+        "create-room",
+        {
+            name: playerName,
+            playerToken
+        },
+        response => {
+            if (!response.ok) {
+                alert(response.message);
+                return;
+            }
 
-    window.location.href= `lobby.html?${params.toString()}`;
+            const params = new URLSearchParams({
+                action: "host",
+                code: response.code,
+                name: playerName
+            });
+
+            window.location.href =
+                `lobby.html?${params.toString()}`;
+        }
+    );
 })
 
 joinForm.addEventListener("submit", event => {
@@ -50,11 +83,27 @@ joinForm.addEventListener("submit", event => {
         return;
     }
 
-    const params = new URLSearchParams({
-        action: "join",
-        name: playerName,
-        code: roomCode
-    });
+       socket.emit(
+        "join-room",
+        {
+            code: roomCode,
+            name: playerName,
+            playerToken
+        },
+        response => {
+            if (!response.ok) {
+                alert(response.message);
+                return;
+            }
 
-    window.location.href = `lobby.html?${params.toString()}`;
+            const params = new URLSearchParams({
+                action: "join",
+                code: response.code,
+                name: playerName
+            });
+
+            window.location.href =
+                `lobby.html?${params.toString()}`;
+        }
+    );
 });

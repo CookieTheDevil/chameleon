@@ -40,21 +40,37 @@
                     <section class="game-option">
                         <h4>Join a session!</h4>
                         <p>(and say 'Thank you!' to the host!)</p>
-                        <form>
-                            <label for="game-code">Code:</label>
-                            <input
-                                id="game-code"
-                                name="game-code"
-                                type="text"
-                                maxlength="5"
-                                placeholder="ABCDE"
-                            >                            
-                            <button type="submit">Join Game</button>
+                        <form id="join-form">
+                            <div class="form-row-container">
+                                <div class="form-row">
+                                    <label for="game-code">Code:</label>
+                                    <input
+                                        id="game-code"
+                                        name="game-code"
+                                        type="text"
+                                        maxlength="5"
+                                        placeholder="ABCDE"
+                                        required
+                                    >    
+                                </div>          
+                                <div class="form-row">          
+                                    <label for="game-name">Name:</label>
+                                    <input
+                                        id="game-name"
+                                        name="game-name"
+                                        type="text"
+                                        maxlength="15"
+                                        placeholder="Cookie"
+                                        required
+                                    >   
+                                </div> 
+                            </div>                          
+                            <button type="submit" id="join-submit">Join Game</button>
                         </form>
                     </section>
                 </section>
             </div>
         </main>
-        <script src="" async defer></script>
+        <script src="js/script.js" async defer></script>
     </body>
 </html>

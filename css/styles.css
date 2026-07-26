@@ -118,7 +118,7 @@ h4 {
     margin: 16px auto 30px;
 
     color: white;
-    background-color: yellowgreen;
+    background-color: var(--start-button);
 
     border: 3px solid white;
     border-radius: 999px;
@@ -144,11 +144,29 @@ p {
 
 form {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center; 
+    gap: 16px;
     margin-top: 25px;
 
     font-family: var(--general-font);
+    width: 100%; 
+}
+
+.form-row-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;               
+    min-width: 220px;  
+}
+
+.form-row {
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;            
+  width: 100%; 
 }
 
 form label {
@@ -156,7 +174,7 @@ form label {
 }
 
 form input {
-    width: 220px;
+    width: 130px;
     height: 34px;
     padding-inline: 8px;
 
@@ -168,8 +186,10 @@ form input {
 }
 
 form button {
-    height: 34px;
-    padding-inline: 12px;
+    height: 40px;
+    flex: 1;
+    min-width: 140px;
+    padding-inline: 16px;
 
     border: none;
     border-radius: 4px;
@@ -178,6 +198,8 @@ form button {
     color: white;
 
     font-family: var(--general-font);
+    font-size: 1.3rem;
+    font-weight: 700;
     cursor: pointer;
 }
 

@@ -38,7 +38,9 @@ body {
 .category-button {
     padding: 5px 14px;
 
-    border: 0;
+    box-sizing: border-box;
+
+    border: 2px solid transparent; 
     border-radius: 999px;
 
     background-color: var(--category-button);
@@ -52,7 +54,7 @@ body {
 
 .category-button.selected {
     font-weight: 700;
-    border: 2px solid #005029; 
+    border-color: #005029; 
     box-shadow: 1px 1px #888888;
 }
 

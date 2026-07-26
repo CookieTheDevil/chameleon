@@ -1,5 +1,10 @@
 const params = new URLSearchParams(window.location.search);
 
+const socket = io(); 
+
+const code = params.get("code")?.toUpperCase(); 
+const playerToken = sessionStorage.getItem("playerToken"); 
+
 const action = params.get("action");
 const playerName = params.get("name");
 const joinedRoomCode = params.get("code");
@@ -9,13 +14,13 @@ const playerLobby = document.querySelector("#player-lobby");
 const playerNameElement = document.querySelector("#player-name");
 const roomCodeElement = document.querySelector("#room-code");
 
-const copyRoomLinkButton =
-    document.querySelector("#copy-link-button");
+const copyRoomLinkButton = document.querySelector("#copy-link-button");
 
 const playerList = document.querySelector("#player-list");
+let previousPlayers = ""; 
 
-const categoryList =
-    document.querySelector("#category-list");
+const categoryList = document.querySelector("#category-list");
+let selectedCategoryIds = []; 
 
 function createPlayerRow(player, index) {
     const playerRow = document.createElement("div"); 
@@ -49,10 +54,36 @@ function createCategoryButton(category) {
     button.textContent = category.name;
 
     button.addEventListener("click", () => {
-        button.classList.toggle("selected");
+        socket.emit(
+            "toggle-category",
+            {
+                code,
+                playerToken,
+                categoryId: category.id
+            },
+            response => {
+                if (!response.ok) {
+                    alert(response.message);
+                }
+            }
+        );
     });
 
     return button;
+}
+
+function updateCategoryButtons(selectedCategories) {
+    const categoryButtons = categoryList.querySelectorAll(
+            ".category-button"
+        );
+
+    categoryButtons.forEach(button => {
+        const isSelected =selectedCategories.includes(
+                button.dataset.category
+        );
+
+        button.classList.toggle("selected", isSelected);
+    });
 }
 
 function renderCategories(categories) {
@@ -63,6 +94,10 @@ function renderCategories(categories) {
             createCategoryButton(category)
         );
     });
+
+    updateCategoryButtons(
+        selectedCategoryIds
+    );
 }
 
 async function loadCategories() {
@@ -110,11 +145,6 @@ copyRoomLinkButton.addEventListener("click", async () => {
 
 // ---------------- SERVER HANDLING ----------------
 
-const socket = io(); 
-
-const code = params.get("code")?.toUpperCase(); 
-const playerToken = sessionStorage.getItem("playerToken"); 
-
 socket.emit(
     "enter-lobby", 
     {
@@ -136,7 +166,16 @@ socket.on("lobby-state", state => {
     playerLobby.hidden = state.isHost;
 
     if (state.isHost) {
-        renderPlayers(state.players); 
+        const currentPlayers = JSON.stringify(state.players); 
+
+        if (currentPlayers !== previousPlayers) {
+            renderPlayers(state.players); 
+            previousPlayers = currentPlayers;
+        }
+
+        selectedCategoryIds = state.selectedCategories; 
+
+        updateCategoryButtons(selectedCategoryIds); 
     } else {
         playerNameElement.textContent = state.playerName; 
     }

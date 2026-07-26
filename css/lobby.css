@@ -1,0 +1,157 @@
+/* LOBBY SPECIFICS */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#host-lobby {
+    width: min(1000px, 92vw);
+    margin: 35px auto 0;
+    padding: 18px 20px 12px;
+
+    background-color: var(--section-color);
+    border-radius: 34px;
+
+    transition: height 0.35s ease;
+}
+
+.lobby-panel h3 {
+    margin: 0 0 18px;
+    padding-top: 0; 
+    font-size: 3.5rem; 
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 12px;
+}
+
+.category-button {
+    padding: 5px 14px;
+
+    border: 0;
+    border-radius: 999px;
+
+    background-color: var(--category-button);
+    color: black;
+
+    font-family: var(--general-font);
+    font-size: 1.45rem;
+
+    cursor: pointer;
+}
+
+
+.category-button.selected {
+    font-weight: 700;
+    border: 2px solid #005029; 
+    box-shadow: 1px 1px #888888;
+}
+
+.player-list {
+    width: min(850px, 90%);
+    min-height: 302px;
+    margin: 14px auto 0;
+    padding: clamp(4px, 1vw, 7px);
+
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3px, 0.8vw, 6px);
+
+    background-color: #7f9350;
+    border-radius: 3px;
+}
+
+.player-row {
+    min-width: 0px; 
+    min-height: 30px;
+    padding: 4px clamp(6px, 1.5vw, 10px);
+
+    background-color: var(--category-button);
+
+    font-family: var(--general-font);
+    font-size: 1.25rem;
+    line-height: 1.1;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    animation: player-appears 0.4s ease;
+}
+
+@keyframes player-appears {
+    from {
+        opacity: 0;
+        transform: scaleY(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+.start-game-button {
+    display: block;
+
+    margin: 45px auto 0;
+    padding: 14px 24px;
+
+    border: 0;
+    border-radius: 999px;
+
+    background-color: var(--start-button);
+    color: black;
+
+    font-family: var(--heading-font);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+@media (max-height: 750px) {
+    h1 {
+        margin-top: 6px;
+    }
+
+    #host-lobby {
+        margin-top: 10px;
+        padding-block: 10px;
+    }
+
+    .lobby-panel h3 {
+        margin-bottom: 8px;
+    }
+
+    .category-list {
+        gap: 6px;
+    }
+
+    .category-button {
+        padding: 3px 9px;
+        font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+    }
+
+    .player-list {
+        min-height: 150px;
+        height: clamp(150px, 27vh, 220px);
+        margin-top: 8px;
+    }
+
+    .start-game-button {
+        margin-top: 8px;
+    }
+}

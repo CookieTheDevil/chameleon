@@ -19,5 +19,6 @@ joinForm.addEventListener("submit", event => {
 
     window.location.href = `lobby.html?code=${encodeURIComponent(code)}`; 
 
-    
+
 })
+

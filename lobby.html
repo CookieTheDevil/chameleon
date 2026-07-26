@@ -5,10 +5,63 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/lobby.css">
+
+        <link
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Open+Sans:wght@400;600;700&family=Ubuntu+Mono:wght@400;700&display=swap"
+        rel="stylesheet"
+        >
     </head>
     <body>  
-        <h1>Chameleon</h1>  
-        <script src="js/script.js" async defer></script>
+        <main class="lobby-page">
+            <header>
+                <h1>Chameleon</h1>
+                <h2 id="copy-link-button" class="room-code">
+                    CODE: <span id="room-code">XY2J7</span> 🔗
+                </h2>
+            </header>
+            <!-- Host Lobby -->
+            <section id="host-lobby" class="lobby-panel">
+                <h3>Pick your categories!</h3>
+
+                <div id="category-list" class="category-list">
+                    <button class="category-button" data-category="places">
+                        Places
+                    </button>
+
+                    <button class="category-button" data-category="vehicles">
+                        Vehicles
+                    </button>
+
+                    <button class="category-button" data-category="people">
+                        People
+                    </button>
+
+                    <button class="category-button" data-category="animals">
+                        Animals
+                    </button>
+
+                    <button class="category-button" data-category="tech">
+                        Tech
+                    </button>
+                </div>
+
+                <div id="player-list" class="player-list"></div> <!-- Will be filled when players join-->
+
+                <button id="start-game-button" class="start-game-button" type="button">
+                    Everyone ready? Start playing!
+                </button>
+            </section>
+            
+            <!-- Player Lobby -->
+            <section id="player-lobby" class="player-waiting" hidden>
+                <h2>Sit tight, <span id="player-name"></span>!</h2>
+                <p>
+                    The host will start the game when everybody is ready.
+                </p>
+            </section>
+        </main>
+        <script src="js/lobby-host.js" defer></script>
     </body>
 </html>

@@ -35,14 +35,32 @@
                     <section class="game-option">
                         <h4>Host a session!</h4>
                         <p>P.S. Someone with a strong Wi-Fi connection should host.</p>
-                        <button class="host-button" type="button">
-                            Host Game
-                        </button>
+                        <form id="host-form" class="session-form">
+                            <div class="form-fields">
+                                <div class="form-row">
+                                    <label for="host-name">Name:</label>
+
+                                    <input
+                                        id="host-name"
+                                        name="host-name"
+                                        type="text"
+                                        maxlength="15"
+                                        placeholder="Sandra"
+                                        autocomplete="nickname"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <button class="host-button" type="submit">
+                                Host Game
+                            </button>
+                        </form>
                     </section>
                     <section class="game-option">
                         <h4>Join a session!</h4>
                         <p>(and say 'Thank you!' to the host!)</p>
-                        <form id="join-form">
+                        <form id="join-form" class="session-form">
                             <div class="form-row-container">
                                 <div class="form-row">
                                     <label for="game-code">Code:</label>
@@ -73,6 +91,6 @@
                 </section>
             </div>
         </main>
-        <script src="js/script.js" async defer></script>
+        <script src="js/script.js" defer></script>
     </body>
 </html>

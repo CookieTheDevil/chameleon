@@ -10,17 +10,31 @@
     --general-font: "Ubuntu Mono"
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%; 
+    margin: 0;
+    min-height: 100%;
+}
+
 body {
     background-color: var(--background-green);
     color: var(--font-color);
     margin: 0; 
-    min-height: 100vh;
+    min-height: 100dvh;
+    height:auto; 
 }
 
 main {
     width: min(1520px, 94vw);
     margin-inline: auto;
-    padding-bottom: 40px;
+    padding-bottom: 0;
 }
 
 
@@ -30,11 +44,16 @@ h1, h2, h3 {
     color: var(--font-color)
 }
 
+header {
+    padding-top: 2vh;
+}
+
 h1 {
+    margin-top: 0;
+
     font-family: var(--heading-font);
     font-size: 5rem;
     line-height: 0.95;
-    margin-top: 2vh; 
 }
 
 h2 {
@@ -105,76 +124,54 @@ h4 {
 
 .game-option {
     width: 100%;
+    margin-top: 2vh; 
 }
 
 .game-option p {
     margin-bottom: 12px;
 }
 
-.host-button {
-    display: block;
-    width: 195px;
-    height: 45px;
-    margin: 16px auto 30px;
+/* Shared form layout */
 
-    color: white;
-    background-color: var(--start-button);
-
-    border: 3px solid white;
-    border-radius: 999px;
-
-    font-family: var(--heading-font);
-    font-size: 1.5rem;
-    font-weight: 700;
-
-    cursor: pointer;
-}
-
-.host-button:hover {
-    background-color: white;
-    color: yellowgreen;
-}
-
-p {
-    font-family: var(--general-font);
-    color: var(--font-color);
-    font-size: 1.2rem;
-    line-height: 1.12;
-}
-
-form {
+.session-form {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center; 
+    flex-flow: row wrap;
+    align-items: center;
     gap: 16px;
-    margin-top: 25px;
+
+    width: 100%;
+    margin-top: 18px;
 
     font-family: var(--general-font);
-    width: 100%; 
 }
 
+.form-fields,
 .form-row-container {
+    flex: 1 1 220px;
+
     display: flex;
     flex-direction: column;
     gap: 12px;
-    flex: 1;               
-    min-width: 220px;  
+
+    min-width: 0;
 }
 
 .form-row {
-  display: flex;
-  justify-content: flex-start; 
-  align-items: center;            
-  width: 100%; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    width: 100%;
 }
 
-form label {
+.session-form label {
+    flex: 0 0 52px;
     font-size: 1.25rem;
 }
 
-form input {
-    width: 130px;
+.session-form input {
+    flex: 1;
+    min-width: 0;
     height: 34px;
     padding-inline: 8px;
 
@@ -182,13 +179,19 @@ form input {
     border-radius: 3px;
 
     font-family: var(--general-font);
+    font-size: 1rem;
+}
+
+#game-code {
     text-transform: uppercase;
 }
 
-form button {
-    height: 40px;
-    flex: 1;
+.session-form button {
+    flex: 1 1 140px;
+
     min-width: 140px;
+    height: 40px;
+    margin: 0;
     padding-inline: 16px;
 
     border: none;
@@ -200,7 +203,20 @@ form button {
     font-family: var(--general-font);
     font-size: 1.3rem;
     font-weight: 700;
+
     cursor: pointer;
+}
+
+.session-form button:hover {
+    background-color: white;
+    color: yellowgreen;
+}
+
+p {
+    font-family: var(--general-font);
+    color: var(--font-color);
+    font-size: 1.2rem;
+    line-height: 1.12;
 }
 
 /* Responsive layout */
@@ -226,17 +242,34 @@ form button {
         font-size: 2.1rem;
     }
 
-    /* Change picture when necessary! */
-
     #yellow-sections-container {
         grid-template-columns: 1fr;
         gap: 24px;
-
         margin-top: 30px;
     }
 
     .yellow-section {
         min-height: auto;
         padding: 16px 20px 24px;
+    }
+
+    .session-form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .session-form .form-fields,
+    .session-form .form-row-container {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .session-form button {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+        height: 44px;
     }
 }

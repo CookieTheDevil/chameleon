@@ -1,3 +1,28 @@
+const params = new URLSearchParams(window.location.search);
+
+const action = params.get("action");
+const playerName = params.get("name");
+const roomCode = params.get("code");
+
+const hostLobby = document.querySelector("#host-lobby");
+const playerLobby = document.querySelector("#player-lobby");
+const playerNameElement = document.querySelector("#player-name");
+const roomCodeElement = document.querySelector("#room-code");
+
+if (action === "join") {
+    hostLobby.hidden = true;
+    playerLobby.hidden = false;
+
+    playerNameElement.textContent = playerName || "Player";
+
+    if (roomCode) {
+        roomCodeElement.textContent = roomCode.toUpperCase();
+    }
+} else {
+    hostLobby.hidden = false;
+    playerLobby.hidden = true;
+}
+
 // Copy link --------------------------------------------
 
 const copyRoomLinkButton =

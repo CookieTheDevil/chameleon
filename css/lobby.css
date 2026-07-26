@@ -1,11 +1,5 @@
 /* LOBBY SPECIFICS */
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 html,
 body {
     width: 100%;
@@ -122,6 +116,35 @@ body {
     cursor: pointer;
 }
 
+.player-waiting {
+    min-height: calc(100dvh - 220px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    text-align: center;
+}
+
+.player-waiting h2 {
+    margin: 0 0 14px;
+
+    color: black;
+    font-family: var(--heading-font);
+    font-size: 4rem; 
+    line-height: 1;
+}
+
+.player-waiting p {
+    max-width: 850px;
+    margin: 0;
+
+    font-family: var(--subheading-font);
+    font-size: 2rem;
+    line-height: 1.25;
+}
 @media (max-height: 750px) {
     h1 {
         margin-top: 6px;

@@ -7,7 +7,15 @@ const code =
 const playerToken =
     sessionStorage.getItem("playerToken");
 
-const socket = io();
+const APP_BASE =
+    window.location.pathname === "/projects/chameleon" ||
+    window.location.pathname.startsWith("/projects/chameleon/")
+        ? "/projects/chameleon"
+        : "";
+
+const socket = io({
+    path: `${APP_BASE}/socket.io`
+});
 
 const roleLine = document.querySelector("#role-line");
 const categoryTitle = document.querySelector("#category-title");

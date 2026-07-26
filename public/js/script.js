@@ -1,4 +1,12 @@
-const socket = io();
+const APP_BASE =
+    window.location.pathname === "/projects/chameleon" ||
+    window.location.pathname.startsWith("/projects/chameleon/")
+        ? "/projects/chameleon"
+        : "";
+
+const socket = io({
+    path: `${APP_BASE}/socket.io`
+});
 
 const hostForm = document.querySelector("#host-form");
 const joinForm = document.querySelector("#join-form");

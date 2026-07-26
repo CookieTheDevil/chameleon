@@ -1,6 +1,14 @@
 const params = new URLSearchParams(window.location.search);
 
-const socket = io(); 
+const APP_BASE =
+    window.location.pathname === "/projects/chameleon" ||
+    window.location.pathname.startsWith("/projects/chameleon/")
+        ? "/projects/chameleon"
+        : "";
+
+const socket = io({
+    path: `${APP_BASE}/socket.io`
+});
 
 const code = params.get("code")?.toUpperCase(); 
 const playerToken = sessionStorage.getItem("playerToken"); 
@@ -120,7 +128,7 @@ function renderCategories(categories) {
 async function loadCategories() {
     try {
         const response =
-            await fetch("/api/categories");
+            await fetch(`${APP_BASE}/api/categories`)
 
         if (!response.ok) {
             throw new Error(

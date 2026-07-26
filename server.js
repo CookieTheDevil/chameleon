@@ -178,7 +178,7 @@ app.get("/api/categories", (request, response) => {
     response.json(publicCategories);
 });
 
-app.use(express.static(path.join(__dirname, "public"))); 
+app.use(express.static(path.join(__dirname, "public")));
 
 // Simple (but not foolproof!) way of creating room code
 function createRoomCode() {

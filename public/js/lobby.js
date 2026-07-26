@@ -14,8 +14,8 @@ const copyRoomLinkButton =
 
 const playerList = document.querySelector("#player-list");
 
-const categoryButtons =
-    document.querySelectorAll(".category-button");
+const categoryList =
+    document.querySelector("#category-list");
 
 function createPlayerRow(player, index) {
     const playerRow = document.createElement("div"); 
@@ -40,11 +40,57 @@ function renderPlayers(players) {
 
 // Category Selection --------------------------------------------
 
-categoryButtons.forEach(button => {
+function createCategoryButton(category) {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.classList.add("category-button");
+    button.dataset.category = category.id;
+    button.textContent = category.name;
+
     button.addEventListener("click", () => {
         button.classList.toggle("selected");
     });
-});
+
+    return button;
+}
+
+function renderCategories(categories) {
+    categoryList.replaceChildren();
+
+    categories.forEach(category => {
+        categoryList.appendChild(
+            createCategoryButton(category)
+        );
+    });
+}
+
+async function loadCategories() {
+    try {
+        const response =
+            await fetch("/api/categories");
+
+        if (!response.ok) {
+            throw new Error(
+                `Request failed: ${response.status}`
+            );
+        }
+
+        const categories = await response.json();
+
+        renderCategories(categories);
+    } catch (error) {
+        console.error(
+            "Could not load categories:",
+            error
+        );
+
+        categoryList.textContent =
+            "Could not load categories.";
+    }
+}
+
+loadCategories();
 
 // Copy link --------------------------------------------
 

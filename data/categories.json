@@ -1,0 +1,81 @@
+{
+  "categories": [
+    {
+      "id": "animals",
+      "name": "Animals",
+      "words": [
+        "Cat", "Dog", "Horse", "Lion", "Tiger", "Elephant", "Giraffe", "Zebra",
+        "Monkey", "Gorilla", "Bear", "Wolf", "Fox", "Rabbit", "Deer", "Moose",
+        "Cow", "Pig", "Sheep", "Goat", "Chicken", "Duck", "Goose", "Swan",
+        "Penguin", "Dolphin", "Whale", "Shark", "Octopus", "Seal", "Otter", "Frog",
+        "Snake", "Lizard", "Crocodile", "Turtle", "Butterfly", "Bee", "Spider", "Ant"
+      ]
+    },
+    {
+      "id": "places",
+      "name": "Places",
+      "words": [
+        "School", "Library", "Hospital", "Airport", "Beach", "Park", "Museum", "Cinema",
+        "Restaurant", "Café", "Supermarket", "Train Station", "Bus Stop", "Castle", "Church", "Zoo",
+        "Office", "Hotel", "Mountain", "Forest", "Lake", "River", "Island", "Desert",
+        "Farm", "Harbor", "Stadium", "Swimming Pool", "Bakery", "University", "Tunnel", "Bridge",
+        "Playground", "Garden", "Campground", "Theater", "Nightclub", "Gallery", "Prison", "Mall"
+      ]
+    },
+    {
+      "id": "vehicles",
+      "name": "Vehicles",
+      "words": [
+        "Car", "Bus", "Train", "Bicycle", "Motorcycle", "Scooter", "Truck", "Van",
+        "Boat", "Ship", "Submarine", "Plane", "Helicopter", "Rocket", "Tractor", "Ambulance",
+        "Police Car", "Fire Truck", "Taxi", "Tram", "Metro", "Hovercraft", "Snowmobile", "Jet Ski",
+        "Bulldozer", "Excavator", "Forklift", "Race Car", "Hot Air Balloon", "Skateboard", "Rollerblades", "Segway",
+        "Cable Car", "Moped", "Pickup Truck", "Camper Van", "Sailboat", "Ferry", "Drone", "Spaceship"
+      ]
+    },
+    {
+      "id": "people",
+      "name": "People",
+      "words": [
+        "Teacher", "Doctor", "Nurse", "Chef", "Pilot", "Firefighter", "Police Officer", "Musician",
+        "Actor", "Dancer", "Student", "Scientist", "Engineer", "Programmer", "Artist", "Writer",
+        "Photographer", "Farmer", "Waiter", "Cashier", "Dentist", "Therapist", "Lawyer", "Judge",
+        "Plumber", "Electrician", "Mechanic", "Builder", "Designer", "Athlete", "Coach", "Librarian",
+        "Journalist", "Receptionist", "Barber", "Taxi Driver", "Astronaut", "Magician", "Tourist", "Politician"
+      ]
+    },
+    {
+      "id": "tech",
+      "name": "Tech",
+      "words": [
+        "Laptop", "Smartphone", "Tablet", "Keyboard", "Mouse", "Monitor", "Headphones", "Microphone",
+        "Speaker", "Camera", "Printer", "Router", "Server", "Database", "Website", "App",
+        "Robot", "Drone", "Charger", "USB Cable", "Projector", "Game Console", "Controller", "Smartwatch",
+        "VR Headset", "Hard Drive", "SSD", "CPU", "GPU", "Motherboard", "Wi-Fi", "Bluetooth",
+        "Cloud Storage", "Touchscreen", "Webcam", "Scanner", "Code Editor", "Browser", "Password", "Algorithm"
+      ]
+    },
+    {
+      "id": "foods",
+      "name": "Foods",
+      "words": [
+        "Pizza", "Burger", "Pasta", "Rice", "Soup", "Bread", "Salad", "Taco",
+        "Burrito", "Sandwich", "Steak", "Sausage", "Fish", "Sushi", "Omelette", "Pancakes",
+        "Waffles", "Chocolate", "Ice Cream", "Cake", "Cookie", "Apple", "Banana", "Orange",
+        "Potato", "Carrot", "Tomato", "Cheese", "Yogurt", "Cereal", "Noodles", "Lasagna",
+        "Popcorn", "Muffin", "Donut", "Milkshake", "Hot Dog", "Kebab", "Curry", "Avocado"
+      ]
+    },
+    {
+      "id": "sandra",
+      "name": "Sandra",
+      "words": [
+        "Yippie", "Teknisk", "Blå", "Sjokolade", "IFI", "Tvilling", "FU-Koordinator", "Nerds",
+        "Musikaler", "Kommandør", "Gaming", "Lørenskog", "IT", "Bøker", "Carl Berners", "Korrupsjon",
+        "Yahoo", "Prosa", "Bachelor", "Koding", "Katt", "Lesesal", "Student", "Quiz",
+        "Pesto Egg", "Tskjorter", "Busstur", "Filmkveld", "Programmering", "Søvn", "Forelesning", "Biff",
+        "Kollektiv", "Sokker", "dagen@ifi", "Humor", "Discord", "UI", "CSS", "Javascript"
+      ]
+    }
+  ]
+}

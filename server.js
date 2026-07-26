@@ -1,4 +1,5 @@
 const path = require("path"); 
+const fs = require("fs");
 const http = require("http"); 
 const express = require("express"); 
 const { Server } = require("socket.io"); 
@@ -10,6 +11,51 @@ const io = new Server(server);
 const PORT = 3000; 
 
 const rooms = new Map(); 
+
+const categoriesPath = path.join(__dirname, "data", "categories.json");
+
+app.get("/api/categories", (request, response) => {
+    fs.readFile(
+        categoriesPath,
+        "utf8",
+        (error, fileContent) => {
+            if (error) {
+                console.error(
+                    "Could not read categories:",
+                    error
+                );
+
+                response.status(500).json({
+                    message: "Could not load categories."
+                });
+
+                return;
+            }
+
+            try {
+                const data = JSON.parse(fileContent);
+
+                const categories = data.categories.map(
+                    category => ({
+                        id: category.id,
+                        name: category.name
+                    })
+                );
+
+                response.json(categories);
+            } catch (error) {
+                console.error(
+                    "Invalid categories JSON:",
+                    error
+                );
+
+                response.status(500).json({
+                    message: "Category data is invalid."
+                });
+            }
+        }
+    );
+});
 
 app.use(express.static(path.join(__dirname, "public"))); 
 
@@ -237,3 +283,29 @@ io.on("connection", socket => {
         console.log("Player disconnected:", socket.id);
     });
 });
+
+// ------------- GAME METHODS -------------
+
+function shuffleArray(array) {
+    const copy = [...array];
+
+    for (let index = copy.length - 1; index > 0; index -= 1) {
+        const randomIndex =
+            Math.floor(Math.random() * (index + 1));
+
+        [copy[index], copy[randomIndex]] =
+            [copy[randomIndex], copy[index]];
+    }
+
+    return copy;
+}
+
+function createBoardWords(words) {
+    return shuffleArray(words).slice(0, 16);
+}
+
+function pickSecretWord(boardWords) {
+    return boardWords[
+        Math.floor(Math.random() * boardWords.length)
+    ];
+}

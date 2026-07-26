@@ -1,0 +1,94 @@
+.game-page {
+    width: min(1200px, 94vw);
+    margin-inline: auto;
+    padding-bottom: 30px;
+}
+
+.game-role-line {
+    margin-top: 10px;
+
+    color: #005029;
+    font-family: var(--subheading-font);
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 700;
+    text-align: center;
+}
+
+.game-board-panel {
+    margin: 24px auto 0;
+    padding: 18px 22px 22px;
+
+    background-color: var(--section-color);
+    border-radius: 34px;
+}
+
+.game-category-title {
+    margin: 0 0 16px;
+
+    font-family: var(--heading-font);
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    text-align: center;
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: clamp(56px, 8vw, 84px) repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.board-cell {
+    min-height: clamp(64px, 10vw, 88px);
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-family: var(--general-font);
+    font-size: clamp(1rem, 2vw, 2.25rem);
+    line-height: 1.15;
+}
+
+.board-corner,
+.board-col-header,
+.board-row-header {
+    background-color: #d3eda4;
+}
+
+.board-col-header,
+.board-row-header {
+    font-family: var(--heading-font);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+}
+
+.board-word {
+    background-color: #e8dcc4;
+}
+
+@media (max-width: 800px) {
+    .game-page {
+        width: min(96vw, 700px);
+    }
+
+    .game-board-panel {
+        padding: 14px 12px 16px;
+    }
+
+    .board-grid {
+        gap: 8px;
+        grid-template-columns: 48px repeat(4, minmax(0, 1fr));
+    }
+
+    .board-cell {
+        min-height: 58px;
+        padding: 6px;
+        font-size: 1.2rem;
+    }
+
+    .board-col-header,
+    .board-row-header {
+        font-size: 1.8rem;
+    }
+}

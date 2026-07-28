@@ -21,8 +21,9 @@ const hostLobby = document.querySelector("#host-lobby");
 const playerLobby = document.querySelector("#player-lobby");
 const playerNameElement = document.querySelector("#player-name");
 const roomCodeElement = document.querySelector("#room-code");
+const copyFeedback = document.querySelector("#copy-feedback");
 
-const copyRoomLinkButton = document.querySelector("#copy-link-button");
+const copyLinkButton = document.querySelector("#copy-link-button");
 
 const playerList = document.querySelector("#player-list");
 let previousPlayers = ""; 
@@ -154,20 +155,58 @@ loadCategories();
 
 // Copy link --------------------------------------------
 
-copyRoomLinkButton.addEventListener("click", async () => {
-    try {
+let copyFeedbackTimeout;
+
+copyLinkButton.addEventListener(
+    "click",
+    async () => {
+        const code =
+            roomCodeElement.textContent.trim();
+
         const inviteUrl =
-            new URL("index.html", window.location.href);
+            new URL(
+                "index.html",
+                window.location.href
+            );
 
-        inviteUrl.searchParams.set("code", code);
-
-        await navigator.clipboard.writeText(
-            inviteUrl.toString()
+        inviteUrl.searchParams.set(
+            "code",
+            code
         );
-    } catch {
-        alert("Could not copy the link.");
+
+        try {
+            await navigator.clipboard.writeText(
+                inviteUrl.toString()
+            );
+
+            clearTimeout(copyFeedbackTimeout);
+
+            copyLinkButton.classList.add("copied");
+            copyFeedback.classList.remove("visible");
+
+            copyFeedback.textContent =
+                "✓ Invitation link copied!";
+
+            void copyFeedback.offsetWidth;
+
+            copyFeedback.classList.add("visible");
+
+            copyFeedbackTimeout = setTimeout(() => {
+                copyLinkButton.classList.remove("copied");
+                copyFeedback.textContent = "";
+                copyFeedback.classList.remove("visible");
+            }, 1800);
+        } catch (error) {
+            console.error(
+                "Could not copy invitation link:",
+                error
+            );
+
+            copyFeedback.textContent =
+                "Could not copy the link.";
+        }
     }
-});
+);
 
 // ---------------- SERVER HANDLING ----------------
 

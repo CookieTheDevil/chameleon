@@ -63,7 +63,7 @@ function renderGame(state) {
 
     if (state.isChameleon) {
         roleLine.textContent =
-            "You are the Chameleon 🦎";
+            "You are the Chameleon🦎";
     } else {
         roleLine.textContent =
             `Secret Word: ${state.secretWord}`;

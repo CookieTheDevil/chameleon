@@ -23,9 +23,28 @@
                 >
                 <div class="header-content">
                     <h1>Chameleon</h1>
-                    <h2 id="copy-link-button" class="room-code">
-                        CODE: <span id="room-code">🦎🦎</span> 🔗
-                    </h2>
+                    <button
+                        id="copy-link-button"
+                        class="room-code"
+                        type="button"
+                        aria-label="Copy room invitation link"
+                    >
+                        <span class="room-code-label">CODE:</span>
+                        <span id="room-code">🦎🦎</span>
+                        <span
+                            class="room-code-icon"
+                            aria-hidden="true"
+                        >
+                            🔗
+                        </span>
+                    </button>
+
+                    <p
+                        id="copy-feedback"
+                        class="copy-feedback"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
                 </div>
             </header>
             <!-- Host Lobby -->

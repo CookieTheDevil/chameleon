@@ -1,13 +1,43 @@
 :root {
-    --background-green: #00BF63;
-    --section-color: #AFC777; 
-    --category-button: #e1ff9b;
-    --start-button: #00b839; 
-    --font-color: black; 
+    /* Main backgrounds */
+    --background-green: #00bf63;
+    --section-color: #afc777;
+    --section-dark: #879d55;
 
-    --heading-font: "League Spartan"; 
-    --subheading-font: "Open Sans"; 
-    --general-font: "Ubuntu Mono"
+    /* Light surfaces */
+    --accent-light: #d9f4a8;
+    --accent-light-hover: #e5ffb8;
+    --header-cell: #d3eda4;
+    --content-box: #e8dcc4;
+    --input-background: #fff9e8;
+
+    /* Dark greens */
+    --green-text: #004c29;
+    --green-text-alt: #005029;
+    --green-border: #005b31;
+    --green-shadow: #003c20;
+
+    /* Transparent colours */
+    --green-border-soft: rgba(0, 80, 41, 0.65);
+    --green-border-light: rgba(0, 80, 41, 0.55);
+    --green-border-strong: rgba(0, 80, 41, 0.75);
+    --green-inset: rgba(0, 80, 41, 0.15);
+    --focus-outline: rgba(217, 244, 168, 0.9);
+    --white-inset: rgba(255, 255, 255, 0.15);
+
+    /* Neutral colours */
+    --white: #ffffff;
+    --black: #000000;
+
+    /* Existing semantic colours */
+    --category-button: #e1ff9b;
+    --start-button: #00b839;
+    --font-color: var(--black);
+
+    /* Fonts */
+    --heading-font: "League Spartan", sans-serif;
+    --subheading-font: "Open Sans", sans-serif;
+    --general-font: "Ubuntu Mono", monospace;
 }
 
 *,
@@ -18,43 +48,45 @@
 
 html,
 body {
-    width: 100%; 
-    margin: 0;
+    width: 100%;
     min-height: 100%;
+    margin: 0;
 }
 
 body {
+    min-height: 100dvh;
+    height: auto;
+    margin: 0;
+
     background-color: var(--background-green);
     color: var(--font-color);
-    margin: 0; 
-    min-height: 100dvh;
-    height:auto; 
 }
 
 main {
     width: min(1520px, 94vw);
     margin-inline: auto;
-    padding-bottom: 0;
 }
 
+h1,
+h2,
+h3 {
+    margin: 0 auto;
 
-h1, h2, h3 {
+    color: var(--font-color);
     text-align: center;
-    margin: 0 auto; 
-    color: var(--font-color)
 }
-
 
 .site-header {
     position: relative;
+
     width: 100%;
     min-height: 250px;
+    padding: 16px 20px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 16px 20px;
     overflow: visible;
 }
 
@@ -71,11 +103,12 @@ h1, h2, h3 {
 
     left: 0;
     top: 50%;
-    transform: translateY(-50%);
 
     width: clamp(260px, 28vw, 440px);
     height: auto;
     max-height: 250px;
+
+    transform: translateY(-50%);
 
     pointer-events: none;
     user-select: none;
@@ -89,32 +122,21 @@ h1, h2, h3 {
     line-height: 0.95;
 }
 
-.room-code {
-    display: inline-block;
-
-    margin-top: 14px;
-    padding: 0;
-
-    border: 0;
-    background: transparent;
-    color: #005029;
-
-    font-family: var(--subheading-font);
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 700;
-
-    cursor: pointer;
-}
-
 .header-subtitle {
-    max-width: 800px;
-    margin: 10px auto 0;
+    max-width: min(700px, 90vw);
+    margin: 0 auto;
+    padding: 10px 20px;
 
-    color: #005029;
+    background-color: var(--accent-light);
+    color: var(--green-text-alt);
+
+    border: 3px solid var(--green-border);
+    border-radius: 18px;
+
     font-family: var(--subheading-font);
-    font-size: clamp(1.5rem, 3.5vw, 3rem);
+    font-size: clamp(1.35rem, 3vw, 2.4rem);
     font-weight: 700;
-    line-height: 1.00;
+    line-height: 1.05;
 }
 
 h1 {
@@ -126,63 +148,104 @@ h1 {
 }
 
 h2 {
-    color: #005029; 
-    font-family: var(--subheading-font);
-    font-weight: 700; 
-    font-size: 3.3rem;
-    line-height: 1.05;
     max-width: 900px;
+
+    color: var(--green-text-alt);
+
+    font-family: var(--subheading-font);
+    font-size: 3.3rem;
+    font-weight: 700;
+    line-height: 1.05;
 }
 
 h3 {
-    font-family: var(--heading-font);
-    font-size: 2.8rem; 
     margin: 0 0 4px;
+    padding-top: 10px;
+
+    font-family: var(--heading-font);
+    font-size: 2.8rem;
     line-height: 1;
     text-align: center;
-    padding-top: 10px; 
 }
 
 h4 {
-    margin: 0 0 4px 0; 
-    
-    margin-bottom: 4px;
-    
-    color: var(--font-color); 
+    margin: 0 0 4px;
+
+    color: var(--font-color);
+
     font-family: var(--heading-font);
     font-size: 2.6rem;
     line-height: 1;
 }
 
 #yellow-sections-container {
+    width: 100%;
+
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 535px));
     justify-content: space-between;
     align-items: stretch;
 
     gap: 70px;
-    width: 100%;
-    margin-top: clamp(50px, 6vh, 75px);
 }
 
 .yellow-section {
     min-height: 455px;
-    padding: 0 14px 18px;
+    padding: 22px 24px 26px;
 
     background-color: var(--section-color);
-    border-radius: 32px;
+
+    border: 4px solid var(--green-border);
+    border-radius: 34px;
+}
+
+.yellow-section > h3 {
+    width: fit-content;
+    max-width: 100%;
+    margin: -4px auto 24px;
+    padding: 4px 24px;
+
+    background-color: var(--accent-light);
+    color: var(--green-text);
+
+    border: 3px solid var(--green-border);
+    border-radius: 18px;
+
+    font-family: var(--heading-font);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1;
+    text-align: center;
 }
 
 #rules-section {
-    padding-inline: 14px;
+    padding-inline: 24px;
 }
 
-.rules-content p {
-    margin-bottom: 22px;
+.rules-box {
+    padding: 18px 20px;
+
+    background-color: var(--content-box);
+
+    border: 2px solid var(--green-border-soft);
+    border-radius: 16px;
 }
 
 .rules-paragraph {
-    margin: 22px 0;
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    line-height: 1.25;
+}
+
+.rules-paragraph + .rules-paragraph {
+    margin-top: 18px;
 }
 
 #wanna-play-section {
@@ -193,23 +256,55 @@ h4 {
 
 .game-option {
     width: 100%;
-    margin-top: 2vh; 
+    margin: 0 0 22px;
+    padding: 18px;
+
+    background-color: var(--content-box);
+
+    border: 2px solid var(--green-border-soft);
+    border-radius: 18px;
+}
+
+.game-option:last-child {
+    margin-bottom: 0;
+}
+
+.game-option h4 {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 12px;
+    padding: 6px 14px;
+
+    background-color: var(--accent-light);
+    color: var(--green-text);
+
+    border: 2px solid var(--green-border);
+    border-radius: 14px;
+
+    font-family: var(--heading-font);
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    line-height: 1;
 }
 
 .game-option p {
-    margin-bottom: 12px;
+    margin: 0 0 14px;
+
+    color: var(--green-text);
+
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    line-height: 1.2;
 }
 
 /* Shared form layout */
 
 .session-form {
+    width: 100%;
+    margin-top: 14px;
+
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
-    gap: 16px;
-
-    width: 100%;
-    margin-top: 18px;
+    align-items: flex-end;
+    gap: 14px;
 
     font-family: var(--general-font);
 }
@@ -218,37 +313,55 @@ h4 {
 .form-row-container {
     flex: 1 1 220px;
 
+    min-width: 0;
+
     display: flex;
     flex-direction: column;
     gap: 12px;
-
-    min-width: 0;
 }
 
 .form-row {
+    width: 100%;
+
     display: flex;
     align-items: center;
-    gap: 8px;
-
-    width: 100%;
+    gap: 10px;
 }
 
 .session-form label {
-    flex: 0 0 52px;
-    font-size: 1.25rem;
+    flex: 0 0 54px;
+
+    color: var(--green-text);
+
+    font-size: 1.15rem;
+    font-weight: 700;
 }
 
 .session-form input {
     flex: 1;
-    min-width: 0;
-    height: 34px;
-    padding-inline: 8px;
 
-    border: 2px solid darkseagreen;
-    border-radius: 3px;
+    min-width: 0;
+    height: 42px;
+    padding: 8px 10px;
+
+    background-color: var(--input-background);
+    color: var(--black);
+
+    border: 2px solid var(--green-border);
+    border-radius: 10px;
+    box-shadow: inset 0 2px 0 var(--green-inset);
 
     font-family: var(--general-font);
     font-size: 1rem;
+
+    outline: none;
+}
+
+.session-form input:focus {
+    background-color: var(--white);
+
+    outline: 4px solid var(--focus-outline);
+    outline-offset: 2px;
 }
 
 #game-code {
@@ -256,34 +369,53 @@ h4 {
 }
 
 .session-form button {
-    flex: 1 1 140px;
+    flex: 1 1 150px;
 
-    min-width: 140px;
-    height: 40px;
-    margin: 0;
-    padding-inline: 16px;
+    min-width: 150px;
+    min-height: 44px;
+    padding: 10px 18px;
 
-    border: none;
-    border-radius: 4px;
+    background-color: var(--accent-light);
+    color: var(--green-text);
 
-    background-color: var(--start-button);
-    color: white;
+    border: 3px solid var(--green-border);
+    border-radius: 14px;
+    box-shadow: 0 4px 0 var(--green-border);
 
-    font-family: var(--general-font);
-    font-size: 1.3rem;
+    font-family: var(--heading-font);
+    font-size: 1.25rem;
     font-weight: 700;
 
     cursor: pointer;
+
+    transition:
+        transform 150ms ease,
+        box-shadow 150ms ease,
+        background-color 150ms ease;
 }
 
 .session-form button:hover {
-    background-color: white;
-    color: yellowgreen;
+    background-color: var(--accent-light-hover);
+    color: var(--green-text);
+
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--green-border);
+}
+
+.session-form button:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 var(--green-border);
+}
+
+.session-form button:focus-visible {
+    outline: 4px solid var(--white);
+    outline-offset: 4px;
 }
 
 p {
-    font-family: var(--general-font);
     color: var(--font-color);
+
+    font-family: var(--general-font);
     font-size: 1.2rem;
     line-height: 1.12;
 }
@@ -291,10 +423,9 @@ p {
 /* Responsive layout */
 
 @media (max-width: 1050px) {
-    /* Change picture when necessary! */
-
     #yellow-sections-container {
         gap: 40px;
+        margin-top: -15px;
     }
 
     h2 {
@@ -303,14 +434,14 @@ p {
 }
 
 @media (max-width: 800px) {
-    
-        main {
+    main {
         width: min(92vw, 600px);
     }
 
     .site-header {
-        min-height: 210px;
+        min-height: 220px;
         padding: 12px 16px;
+
         overflow: visible;
     }
 
@@ -325,7 +456,7 @@ p {
         max-height: 200px;
 
         transform: translate(-50%, -50%);
-        opacity: 0.7;
+        opacity: 0.55;
     }
 
     .header-content {
@@ -338,41 +469,78 @@ p {
     }
 
     .header-subtitle {
-        font-size: clamp(1.35rem, 6vw, 2.1rem);
-    }
+        padding: 8px 14px;
 
-    h2 {
-        font-size: 2.1rem;
+        font-size: clamp(1.15rem, 5vw, 1.8rem);
     }
 
     #yellow-sections-container {
         grid-template-columns: 1fr;
-        gap: 24px;
-        margin-top: 30px;
+
+        gap: 28px;
+        margin-top: -10px;
+        margin-bottom: 28px;
     }
 
     .yellow-section {
         min-height: auto;
-        padding: 16px 20px 24px;
+        padding: 18px 14px 22px;
+    }
+
+    .yellow-section > h3 {
+        margin-bottom: 18px;
+        padding: 7px 16px;
+    }
+
+    #rules-section {
+        padding-inline: 14px;
+    }
+
+    .rules-box {
+        padding: 16px 14px;
+    }
+
+    .game-option {
+        padding: 15px 13px;
+    }
+
+    .game-option h4 {
+        margin-inline: auto;
+
+        text-align: center;
     }
 
     .session-form {
         flex-direction: column;
         align-items: stretch;
+
         gap: 12px;
     }
 
     .session-form .form-fields,
     .session-form .form-row-container {
         flex: none;
+
         width: 100%;
         min-width: 0;
     }
 
+    .form-row {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 5px;
+    }
+
+    .session-form label {
+        flex: none;
+    }
+
     .session-form button {
         flex: none;
+
         width: 100%;
         min-width: 0;
-        height: 44px;
+        min-height: 46px;
     }
 }

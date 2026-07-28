@@ -68,23 +68,6 @@
       ]
     },
     {
-      "id": "tech",
-      "name": "Tech",
-      "words": [
-        "Laptop", "Smartphone", "Tablet", "Keyboard", "Mouse", "Monitor", "Headphones", "Microphone",
-        "Speaker", "Camera", "Printer", "Router", "Server", "Database", "Website", "App",
-        "Robot", "Drone", "Charger", "USB Cable", "Projector", "Game Console", "Controller", "Smartwatch",
-        "VR Headset", "Hard Drive", "SSD", "CPU", "GPU", "Motherboard", "Wi-Fi", "Bluetooth",
-        "Cloud Storage", "Touchscreen", "Webcam", "Scanner", "Code Editor", "Browser", "Password", "Algorithm",
-        "Scam", "Hacker", "Cyberattack", "Security", "Firewall", "Client", "Peer-to-Peer", "Layers", 
-        "Models", "ER Graphs", "Scrum", "Kanban", "iPad", "QR Code", "Artificial Intelligence", "Chatbot", "Machine Learning",
-        "Virtual Machine", "Operating System", "Command Line", "GitHub",
-        "Pull Request", "Merge Conflict", "Bug", "Feature", "API", "Cache",
-        "Cookie", "Captcha", "Dark Mode", "Incognito Mode", "404 Error",
-        "Blue Screen", "Software Update", "Low Battery", "Broken Screen"
-      ]
-    },
-    {
       "id": "foods",
       "name": "Foods",
       "words": [
@@ -100,6 +83,84 @@
         "Bubble Tea", "Coffee", "Hot Chocolate", "Energy Drink", "Grandiosa",
         "Brown Cheese", "Taco Friday", "Mystery Leftovers"
       ]
+    },
+    {
+      "id": "music",
+      "name": "Music",
+      "words": [
+        "Guitar", "Piano", "Drums", "Violin", "Trumpet", "Flute", "Saxophone",
+        "Ukulele", "Accordion", "Harp", "Cello", "Bass Guitar", "Tambourine",
+        "Singer", "Rapper", "DJ", "Choir", "Orchestra", "Conductor", "Rock Band",
+        "Pop Song", "Heavy Metal", "Jazz", "Classical Music", "Country Music",
+        "Musical", "Opera", "Karaoke", "Concert", "Music Festival", "Dance Floor",
+        "Microphone", "Headphones", "Vinyl Record", "Spotify Playlist", "Album Cover",
+        "Air Guitar", "Drum Solo", "High Note", "Catchy Chorus", "Remix",
+        "One-Hit Wonder", "Boy Band", "Girl Group", "Eurovision", "National Anthem",
+        "Elevator Music", "Ringtone", "Theme Song", "Background Music"
+    ]
+    },
+    {
+      "id": "sports",
+      "name": "Sports",
+      "words": [
+        "Football", "Basketball", "Volleyball", "Handball", "Tennis", "Badminton",
+        "Golf", "Baseball", "Ice Hockey", "Field Hockey", "Rugby", "Cricket",
+        "Swimming", "Diving", "Skiing", "Snowboarding", "Skating", "Cycling",
+        "Running", "Marathon", "Gymnastics", "Boxing", "Wrestling", "Karate",
+        "Judo", "Fencing", "Archery", "Surfing", "Climbing", "Kayaking",
+        "Table Tennis", "Bowling", "Darts", "Chess", "E-sports", "Weightlifting",
+        "Referee", "Goalkeeper", "Cheerleader", "Penalty Kick", "Yellow Card",
+        "World Record", "Gold Medal", "Victory Dance", "Own Goal", "Half-Time",
+        "Sports Injury", "Team Mascot", "Olympic Torch", "Photo Finish"
+    ]
+    },
+    {
+      "id": "party",
+      "name": "Party & Celebrations",
+      "words": [
+        "Birthday Party", "Wedding", "Graduation", "Christmas Party", "Halloween Party",
+        "New Year's Eve", "Surprise Party", "House Party", "Dinner Party", "Costume Party",
+        "Birthday Cake", "Candles", "Balloons", "Confetti", "Party Hat", "Gift",
+        "Invitation", "Guest List", "Dance Floor", "DJ", "Karaoke", "Disco Ball",
+        "Photo Booth", "Wedding Speech", "Best Man", "Maid of Honour", "Bride",
+        "Groom", "Bouquet", "Champagne", "Cocktail", "Mocktail", "Party Game",
+        "Board Game", "Truth or Dare", "Musical Chairs", "Limbo", "Afterparty", "Hangover",
+        "Bad Dancing", "Awkward Small Talk", "Unexpected Guest", "Forgotten Present",
+        "Party Crasher", "Last Slice of Pizza", "Group Photo", "Midnight Countdown"
+    ]
+    }, 
+    {
+      "id": "tech",
+      "name": "Tech",
+      "words": [
+        "Laptop", "Smartphone", "Tablet", "Keyboard", "Mouse", "Monitor", "Headphones", "Microphone",
+        "Speaker", "Camera", "Printer", "Router", "Server", "Database", "Website", "App",
+        "Robot", "Drone", "Charger", "USB Cable", "Projector", "Game Console", "Controller", "Smartwatch",
+        "VR Headset", "Hard Drive", "SSD", "CPU", "GPU", "Motherboard", "Wi-Fi", "Bluetooth",
+        "Cloud Storage", "Touchscreen", "Webcam", "Scanner", "Code Editor", "Browser", "Password", "Algorithm",
+        "Scam", "Hacker", "Cyberattack", "Security", "Firewall", "Client", "Peer-to-Peer", "Layers", 
+        "Models", "ER Graphs", "Scrum", "Kanban", "iPad", "QR Code", "Artificial Intelligence", "Chatbot", "Machine Learning",
+        "Virtual Machine", "Operating System", "Command Line", "GitHub",
+        "Pull Request", "Merge Conflict", "Bug", "Feature", "API", "Cache",
+        "Cookie", "Captcha", "Dark Mode", "Incognito Mode", "404 Error",
+        "Blue Screen", "Software Update", "Low Battery", "Broken Screen"
+      ]
+    },   
+    {
+      "id": "movies-tv",
+      "name": "Movies & TV",
+      "words": [
+        "Star Wars", "Harry Potter", "Lord of the Rings", "The Hobbit", "The Matrix",
+        "Jurassic Park", "Titanic", "Avatar", "Frozen", "Shrek", "Toy Story",
+        "The Lion King", "Finding Nemo", "The Avengers", "Barbie", "Oppenheimer",
+        "James Bond", "Indiana Jones", "Mission Impossible", "Pirates of the Caribbean",
+        "Stranger Things", "Game of Thrones", "Breaking Bad", "The Office",
+        "Friends", "Wednesday", "The Simpsons", "South Park", "Doctor Who",
+        "Sherlock", "Squid Game", "Black Mirror", "The Mandalorian", "Arcane",
+        "Reality Show", "Cooking Show", "Documentary", "Romantic Comedy", "Horror Movie",
+        "Action Movie", "Plot Twist", "Cliffhanger", "Opening Credits", "End Credits",
+        "Movie Trailer", "Red Carpet", "Stunt Double", "Laugh Track", "Spoiler"
+    ]
     },
     {
       "id": "sandra",
@@ -154,9 +215,9 @@
         ]
     },
     {
-    "id": "villains",
-    "name": "Villains",
-    "words": [
+      "id": "villains",
+      "name": "Villains",
+      "words": [
         "The Joker","Harley Quinn","Lex Luthor","Thanos",
         "Loki","Ultron","Green Goblin","Doctor Octopus","Venom","Carnage","Sandman","Mysterio",
         "Kingpin","The Lizard","Electro","Vulture","Kraven the Hunter","Rhino","Scorpion","Red Skull",
@@ -186,9 +247,9 @@
     ]
     },
     {
-    "id": "fantasy",
-    "name": "Fantasy",
-    "words": [
+      "id": "fantasy",
+      "name": "Fantasy",
+      "words": [
         "Dragon", "Wizard", "Witch", "Elf", "Dwarf", "Orc", "Goblin", "Troll",
         "Fairy", "Mermaid", "Vampire", "Werewolf", "Zombie", "Ghost", "Demon",
         "Angel", "Knight", "Paladin", "Necromancer", "Sorcerer", "Ranger", "Bard",
@@ -201,9 +262,9 @@
     ]
     },
     {
-    "id": "mythology",
-    "name": "Mythology",
-    "words": [
+      "id": "mythology",
+      "name": "Mythology",
+      "words": [
         "Zeus", "Poseidon", "Hades", "Athena", "Ares", "Apollo", "Artemis",
         "Aphrodite", "Hermes", "Hera", "Dionysus", "Medusa", "Minotaur", "Cyclops",
         "Cerberus", "Pegasus", "Phoenix", "Sphinx", "Kraken", "Griffin",
@@ -215,9 +276,9 @@
     ]
     },
     {
-    "id": "video-games",
-    "name": "Video Games",
-    "words": [
+      "id": "video-games",
+      "name": "Video Games",
+      "words": [
         "Mario", "Luigi", "Princess Peach", "Bowser", "Yoshi", "Donkey Kong",
         "Link", "Zelda", "Ganondorf", "Kirby", "Pikachu", "Charizard",
         "Sonic", "Tails", "Dr. Eggman", "Steve", "Minecraft Creeper", "Enderman",
@@ -229,130 +290,6 @@
         "Respawn Point", "Health Potion", "Loading Screen", "Side Quest",
         "Speedrun", "Boss Fight", "Loot Box", "Game Over", "Controller Drift",
         "Friendly Fire", "Lag", "Noob", "NPC", "Final Boss"
-    ]
-    },
-    {
-    "id": "movies-tv",
-    "name": "Movies & TV",
-    "words": [
-        "Star Wars", "Harry Potter", "Lord of the Rings", "The Hobbit", "The Matrix",
-        "Jurassic Park", "Titanic", "Avatar", "Frozen", "Shrek", "Toy Story",
-        "The Lion King", "Finding Nemo", "The Avengers", "Barbie", "Oppenheimer",
-        "James Bond", "Indiana Jones", "Mission Impossible", "Pirates of the Caribbean",
-        "Stranger Things", "Game of Thrones", "Breaking Bad", "The Office",
-        "Friends", "Wednesday", "The Simpsons", "South Park", "Doctor Who",
-        "Sherlock", "Squid Game", "Black Mirror", "The Mandalorian", "Arcane",
-        "Reality Show", "Cooking Show", "Documentary", "Romantic Comedy", "Horror Movie",
-        "Action Movie", "Plot Twist", "Cliffhanger", "Opening Credits", "End Credits",
-        "Movie Trailer", "Red Carpet", "Stunt Double", "Laugh Track", "Spoiler"
-    ]
-    },
-    {
-    "id": "music",
-    "name": "Music",
-    "words": [
-        "Guitar", "Piano", "Drums", "Violin", "Trumpet", "Flute", "Saxophone",
-        "Ukulele", "Accordion", "Harp", "Cello", "Bass Guitar", "Tambourine",
-        "Singer", "Rapper", "DJ", "Choir", "Orchestra", "Conductor", "Rock Band",
-        "Pop Song", "Heavy Metal", "Jazz", "Classical Music", "Country Music",
-        "Musical", "Opera", "Karaoke", "Concert", "Music Festival", "Dance Floor",
-        "Microphone", "Headphones", "Vinyl Record", "Spotify Playlist", "Album Cover",
-        "Air Guitar", "Drum Solo", "High Note", "Catchy Chorus", "Remix",
-        "One-Hit Wonder", "Boy Band", "Girl Group", "Eurovision", "National Anthem",
-        "Elevator Music", "Ringtone", "Theme Song", "Background Music"
-    ]
-    },
-    {
-    "id": "sports",
-    "name": "Sports",
-    "words": [
-        "Football", "Basketball", "Volleyball", "Handball", "Tennis", "Badminton",
-        "Golf", "Baseball", "Ice Hockey", "Field Hockey", "Rugby", "Cricket",
-        "Swimming", "Diving", "Skiing", "Snowboarding", "Skating", "Cycling",
-        "Running", "Marathon", "Gymnastics", "Boxing", "Wrestling", "Karate",
-        "Judo", "Fencing", "Archery", "Surfing", "Climbing", "Kayaking",
-        "Table Tennis", "Bowling", "Darts", "Chess", "E-sports", "Weightlifting",
-        "Referee", "Goalkeeper", "Cheerleader", "Penalty Kick", "Yellow Card",
-        "World Record", "Gold Medal", "Victory Dance", "Own Goal", "Half-Time",
-        "Sports Injury", "Team Mascot", "Olympic Torch", "Photo Finish"
-    ]
-    },
-    {
-    "id": "emotions",
-    "name": "Emotions & Reactions",
-    "words": [
-        "Happy", "Sad", "Angry", "Excited", "Confused", "Surprised", "Scared",
-        "Nervous", "Embarrassed", "Proud", "Jealous", "Bored", "Tired", "Curious",
-        "Disappointed", "Relieved", "Frustrated", "Suspicious", "Shocked", "Annoyed",
-        "In Love", "Heartbroken", "Overconfident", "Impatient", "Awkward",
-        "Trying Not to Laugh", "Receiving Good News", "Receiving Bad News",
-        "Forgetting Someone's Name", "Realising You Are Late", "Seeing a Spider",
-        "Winning the Lottery", "Losing Your Phone", "Opening Exam Results",
-        "Meeting a Celebrity", "Being Left on Read", "Internet Going Down",
-        "Monday Morning", "Friday Afternoon", "Social Battery Empty",
-        "Second-Hand Embarrassment", "Existential Crisis", "Main Character Energy"
-    ]
-    },
-    {
-    "id": "university",
-    "name": "University Life",
-    "words": [
-        "Lecture", "Seminar", "Exam", "Assignment", "Group Project", "Bachelor Thesis",
-        "Master Thesis", "Professor", "Teaching Assistant", "Student", "Study Group",
-        "Lecture Hall", "Reading Room", "Campus", "Student Pub", "Student Association",
-        "Orientation Week", "Student ID", "Canvas", "Zoom Lecture", "Deadline",
-        "All-Nighter", "Coffee Break", "Lunch Break", "Office Hours", "Presentation",
-        "Academic Paper", "Citation", "Bibliography", "Plagiarism", "Multiple Choice",
-        "Oral Exam", "Home Exam", "Failed Exam", "Resit Exam", "Passing Grade",
-        "Group Chat", "Shared Document", "Missing Teammate", "Broken Projector",
-        "Mandatory Attendance", "Overdue Library Book", "Free Pizza", "Student Discount",
-        "Procrastination", "Last-Minute Submission", "Graduation", "Diploma",
-        "Exchange Student", "Career Fair", "IFI", "Blindern"
-    ]
-    },
-    {
-    "id": "internet-culture",
-    "name": "Internet Culture",
-    "words": [
-        "Meme", "Viral Video", "Influencer", "Livestream", "Podcast", "YouTuber",
-        "Twitch Streamer", "Content Creator", "Reaction Video", "Unboxing Video",
-        "Clickbait", "Fake News", "Comment Section", "Hashtag", "Trending Topic",
-        "Profile Picture", "Selfie", "Filter", "Emoji", "GIF", "Sticker",
-        "Like", "Dislike", "Subscribe", "Follow", "Unfollow", "Block", "Report",
-        "Going Viral", "Doomscrolling", "Online Shopping", "Video Call", "Group Chat",
-        "Voice Message", "Typing Indicator", "Read Receipt", "Left on Read",
-        "Autocorrect", "CAPS LOCK", "Spam Email", "Pop-Up Ad", "Cookie Banner",
-        "Two-Factor Authentication", "Forgotten Password", "Wi-Fi Password",
-        "Low Battery", "Blue Screen", "Internet Troll", "Cat Video", "Rickroll"
-    ]
-    },
-    {
-    "id": "clothing",
-    "name": "Clothing & Accessories",
-    "words": [
-        "T-Shirt", "Shirt", "Jumper", "Hoodie", "Jacket", "Coat", "Dress",
-        "Skirt", "Jeans", "Shorts", "Suit", "Pyjamas", "Bathrobe", "Underwear",
-        "Socks", "Shoes", "Boots", "Slippers", "Sandals", "High Heels",
-        "Hat", "Cap", "Beanie", "Scarf", "Gloves", "Belt", "Tie",
-        "Bow Tie", "Sunglasses", "Glasses", "Watch", "Necklace", "Bracelet",
-        "Ring", "Earrings", "Handbag", "Backpack", "Umbrella", "Wedding Dress",
-        "Graduation Cap", "Halloween Costume", "Superhero Cape", "Ugly Christmas Jumper",
-        "Matching Outfits", "Inside-Out Shirt", "Wet Socks", "Crocs", "Fanny Pack"
-    ]
-    },
-    {
-    "id": "party",
-    "name": "Party & Celebrations",
-    "words": [
-        "Birthday Party", "Wedding", "Graduation", "Christmas Party", "Halloween Party",
-        "New Year's Eve", "Surprise Party", "House Party", "Dinner Party", "Costume Party",
-        "Birthday Cake", "Candles", "Balloons", "Confetti", "Party Hat", "Gift",
-        "Invitation", "Guest List", "Dance Floor", "DJ", "Karaoke", "Disco Ball",
-        "Photo Booth", "Wedding Speech", "Best Man", "Maid of Honour", "Bride",
-        "Groom", "Bouquet", "Champagne", "Cocktail", "Mocktail", "Party Game",
-        "Board Game", "Truth or Dare", "Musical Chairs", "Afterparty", "Hangover",
-        "Bad Dancing", "Awkward Small Talk", "Unexpected Guest", "Forgotten Present",
-        "Party Crasher", "Last Slice of Pizza", "Group Photo", "Midnight Countdown"
     ]
     }
   ]

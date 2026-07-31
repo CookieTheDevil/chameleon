@@ -163,56 +163,43 @@
     ]
     },
     {
-      "id": "sandra",
-      "name": "Sandra",
-      "words": [
-        "Yippie", "Teknisk", "Blå", "Sjokolade", "IFI", "Tvilling", "FU-Koordinator", "Nerds",
-        "Musikaler", "Kommandør", "Gaming", "Lørenskog", "IT", "Bøker", "Carl Berners", "Korrupsjon",
-        "Yahoo", "Prosa", "Bachelor", "Koding", "Katt", "Lesesal", "Student", "Quiz",
-        "Pesto Egg", "Tskjorter", "Busstur", "Filmkveld", "Programmering", "Søvn", "Forelesning", "Biff",
-        "Kollektiv", "Sokker", "dagen@ifi", "Humor", "Discord", "UI", "CSS", "JavaScript",
-        "Drama", "Røde Kors", "Kreativitet", "Hobby", "Foreninger", "Briller", "Linser", "Maskara", 
-        "Oslo", "Wii U", "Brettspill", "Master", "HTML"
-      ]
-    }, 
-    {
-    "id": "superheroes",
+      "id": "superheroes",
     "name": "Superheroes",
-        "words": [
-        "Superman","Batman","Wonder Woman","Spider-Man","Iron Man","Captain America","Thor","Hulk",
-        "Black Widow","Hawkeye","Black Panther","Doctor Strange","Captain Marvel","Scarlet Witch",
+    "words": [
+      "Superman","Batman","Wonder Woman","Spider-Man","Iron Man","Captain America","Thor","Hulk",
+      "Black Widow","Hawkeye","Black Panther","Doctor Strange","Captain Marvel","Scarlet Witch",
         "Vision","Ant-Man","The Wasp","Falcon","Winter Soldier","War Machine","Star-Lord","Gamora",
         "Drax","Rocket Raccoon","Groot","Mantis","Nebula","Shang-Chi","Moon Knight","She-Hulk",
         "Ms. Marvel","Daredevil","The Punisher","Blade","Ghost Rider","Deadpool","Wolverine",
         "Professor X","Cyclops","Jean Grey","Storm","Rogue","Gambit","Beast","Nightcrawler",
         "Colossus","Iceman","Kitty Pryde","Cable","Domino","Silver Surfer","Human Torch",
         "Invisible Woman","Mister Fantastic","The Thing",
-
+        
         "Aquaman","The Flash","Green Lantern","Cyborg","Shazam","Green Arrow","Black Canary",
         "Supergirl","Batgirl","Robin","Nightwing","Batwoman","Catwoman",
-
+        
         "Invincible",
-
+        
         "Mr. Incredible","Elastigirl","Violet Parr","Dash Parr","Frozone","Jack-Jack",
         "Baymax","Hiro Hamada","Go Go Tomago","Honey Lemon","Wasabi","Fred",
         "Megamind","Metro Man","Gru","Kim Possible","Ron Stoppable",
         "Danny Phantom","Ben 10",
-
+        
         "Optimus Prime","Bumblebee","Sonic","Tails","Knuckles","Mario","Luigi",
         "Link","Zelda","Kirby",
-
+        
         "Harry Potter","Hermione Granger","Ron Weasley","Albus Dumbledore","Neville Longbottom",
         "Aragorn","Legolas","Gimli","Gandalf","Frodo Baggins","Samwise Gamgee",
-
+        
         "Luke Skywalker","Leia Organa","Han Solo","Obi-Wan Kenobi","Yoda","Ahsoka Tano",
         "The Mandalorian",
-
+        
         "Percy Jackson","Annabeth Chase","Hercules","Mulan","Aladdin","Moana","Elsa",
         "Merida","Peter Pan","Robin Hood","Sherlock Holmes",
-
+        
         "Powerpuff Girls",
         "Teen Titans","Power Rangers","Sailor Moon","Naruto"
-        ]
+      ]
     },
     {
       "id": "villains",
@@ -223,28 +210,28 @@
         "Kingpin","The Lizard","Electro","Vulture","Kraven the Hunter","Rhino","Scorpion","Red Skull",
         "Baron Zemo","Hela","Killmonger","MODOK","Kang the Conqueror","Dormammu","Galactus","Apocalypse",
         "Magneto","Mystique","Dark Phoenix","The Riddler","The Penguin","Two-Face","Poison Ivy","Scarecrow",
-
+        
         "Darth Vader","Emperor Palpatine","Kylo Ren","Count Dooku","Darth Maul","General Grievous","Grand Moff Tarkin","Jabba the Hutt","Boba Fett",
-
+        
         "Lord Voldemort","Bellatrix Lestrange","Lucius Malfoy","Dolores Umbridge","Peter Pettigrew","Fenrir Greyback","Barty Crouch Jr.","Death Eater",
-
+        
         "Sauron","Saruman","Gollum","The Witch-king","Smaug","Shelob","Azog","Goblin King",
-
+        
         "Cruella de Vil","Maleficent","Jafar","Scar","Ursula","Captain Hook","Gaston","Mother Gothel","The Evil Queen",
         "Lady Tremaine","Dr. Facilier","Hades","Shan Yu","Frollo","Yzma","Prince John","Madam Mim",
         "The Horned King","Oogie Boogie","Bowser","Ganondorf","Dr. Eggman","GLaDOS","Portal Turret","Herobrine",
         "Minecraft Creeper","Team Rocket","Tom Nook","Flowey","Sans","The Lich King","The Illusive Man","Wheatley",
-
+        
         "The Grinch","Agent Smith","HAL 9000","The Terminator","Skynet","Pennywise","Freddy Krueger","Jason Voorhees",
         "Michael Myers","Ghostface","Hannibal Lecter","Norman Bates","Jigsaw","Chucky","The Xenomorph","The Predator",
-
+        
         "Medusa","The Minotaur","Cerberus","Fenrir","Jörmungandr","Hydra","Kraken",
-
+        
         "Mad Scientist","Evil Wizard","Dark Lord","Necromancer","Dragon Tyrant","Corrupt King",
         "Corrupt Politician","Crime Boss","Pirate Captain","Cult Leader","Assassin","Bounty Hunter","Serial Killer","Alien Invader",
         "Robot Overlord","Evil Twin","Haunted Doll","Vampire Lord","Werewolf Alpha","Evil Queen","Shadow Monster","Mafia Boss",
         "Rogue AI","Time Traveller","Corrupt CEO","Greedy Landlord","Tax Collector","School Bully","Internet Troll","Final Boss"
-    ]
+      ]
     },
     {
       "id": "fantasy",
@@ -259,7 +246,7 @@
         "Secret Passage", "Forbidden Forest", "Floating Island", "Mimic Chest",
         "Bag of Holding", "Critical Hit", "Quest Giver", "Final Boss", "Chosen One",
         "Goblin Market", "Skeleton Army", "Talking Sword", "Friendly Dragon"
-    ]
+      ]
     },
     {
       "id": "mythology",
@@ -273,7 +260,7 @@
         "Anubis", "Ra", "Horus", "Bastet", "Osiris", "Mummy", "Ankh",
         "Excalibur", "King Arthur", "Merlin", "Lady of the Lake", "Mjölnir",
         "Pandora's Box", "Golden Fleece", "Trojan Horse", "Norse God", "Greek Hero"
-    ]
+      ]
     },
     {
       "id": "video-games",
@@ -290,7 +277,34 @@
         "Respawn Point", "Health Potion", "Loading Screen", "Side Quest",
         "Speedrun", "Boss Fight", "Loot Box", "Game Over", "Controller Drift",
         "Friendly Fire", "Lag", "Noob", "NPC", "Final Boss"
-    ]
+      ]
+    },
+    {
+      "id": "sandra",
+      "name": "Sandra",
+      "words": [
+        "Yippie", "Teknisk", "Blå", "Sjokolade", "IFI", "Tvilling", "FU-Koordinator", "Nerds",
+        "Musikaler", "Kommandør", "Gaming", "Lørenskog", "IT", "Bøker", "Carl Berners", "Korrupsjon",
+        "Yahoo", "Prosa", "Bachelor", "Koding", "Katt", "Lesesal", "Student", "Quiz",
+        "Pesto Egg", "Tskjorter", "Busstur", "Filmkveld", "Programmering", "Søvn", "Forelesning", "Biff",
+        "Kollektiv", "Sokker", "dagen@ifi", "Humor", "Discord", "UI", "CSS", "JavaScript",
+        "Drama", "Røde Kors", "Kreativitet", "Hobby", "Foreninger", "Briller", "Linser", "Maskara", 
+        "Oslo", "Wii U", "Brettspill", "Master", "HTML", "Klistremerker"
+      ]
+    },
+    {
+      "id": "ifi", 
+      "name": "IFI",
+      "words": [
+        "Cybernetisk Selskab", "dagen@ifi", "Defi", "Digitus", "Fadderstyret", "FIFI", "Foreningsfesten", "FUI",
+        "Fordelingsutvalget", "MA:KI", "MAPS", "Mikro", "Navet", "IFI-Ordenen", "Output", "PGA IFI",
+        "IFI-PitbullS", "PiTCH", "ProgSys", "Quizifi", "IFI-Rastløs", "Realitifi", "SIFI", "Toastjærn", 
+        "VIFI", "Foreningsfesten", "FU-Koordinator", "FU-møte", "Halvpris i kantina", "Dana", "Mikro-kiosken",
+        "FK", "FUI-kontoret", "Sonen", "Escape", "IFI-Galla", "Ettermiddagen@ifi", "Bonger", "Bedpress", "Intern", "Internpris", 
+        "Funk", "Styremedlem", "Mastertårnet", "Dalje", "IN2000", "IN1010", "IN1000", "IN2010", "IN2120",
+        "Digøk", "Design", "Prosa", "Robotikk", "Språktek", "Infosek", "Entrepenør", "Søknad", 
+        "Gruppelærer", "Retter", "Omid", "Lars Tveito", "Audun Jøsang", "Karaktersnitt"
+      ]
     }
   ]
 }
